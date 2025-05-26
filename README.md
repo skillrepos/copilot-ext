@@ -11,7 +11,7 @@ These instructions will guide you through configuring a GitHub Codespaces enviro
 
 **2. Click on the button below to start a new codespace from this repository.**
 
-Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/brentlaster/3in1?quickstart=1)
+Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/ai-sdlc?quickstart=1)
 
 <br><br>
 
