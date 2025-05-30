@@ -26,11 +26,6 @@
                   "markdown": false,
                   "scminput": false
                  },   
-                 "github.copilot.enableAutoComplete": false, 
-                 "editor.inlineSuggest.enabled": false,
-                 "github.copilot.inlineSuggest.enable": false,
-                 "github.copilot.chat.enable": false,
-                 "github.copilotChat.showInExplorer": false,
                  "workbench.startupEditor": "readme", 
                  // Open Markdown files in preview mode by default
                  "workbench.editorAssociations": {
