@@ -158,6 +158,41 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
+Lab 3: Fixing bugs with AI
+Purpose: In this lab, we'll see how to fix bugs with AI.
+
+1. Let's see what happens if we try to delete a non-existent item in our list. Run the command below.
+
+```
+# Delete an item:
+curl -i \
+  -X DELETE \
+  -H "Authorization: Bearer secret-token" \
+  http://127.0.0.1:5000/items/4
+```
+
+2. Notice that the attempt returns a 500 return code indicating *server error*. We'd rather have it return a 404 error indicating *Not found*.
+
+3. So we have more control over changes, switch Copilot back to "Ask mode" by clicking on the drop-down at the bottom of the chat input dialog.
+
+4. Now, let's let Copilot have a try at fixing this. Enter and submit the following prompt.
+
+```
+Fix the delete endpoint so that deleting a missing item returns 404 JSON {error: 'Not found'} instead of a server error.
+```
+
+5. After Copilot processes this, you should see some changed files again. Before we review them, let's add Copilot as a reviewer to have it take a look. Go to the first diff and right-click and select the menu item "Copilot" -> "Review and comment".
+
+6. Copilot should review the proposed changes and offer any suggestions. If it does have suggestions, you can choose to Accept/Keep or Discard/Undo them. Repeat this same process to have Copilot review all changes and Accept/Keep or Discard/Undo each one.
+
+7. Once you are satisfied with the set of changes and reviews, go ahead and click the Accept/Keep button for all the changes
+
+8. Now, you can repeat step #1 and hopefully you'll see a 404 error instead of a 500 one.
+
+Lab 4: Testing
+Purpose: In this lab, we'll see how to use AI to generate tests for our code.
+
+
 
 4. Hit return and notice the code that Copilot suggested. This is likely more generic than we want, but hit tab to select that line. (Note that you should give Copilot a second to provide code suggestions before moving on to the next line.)
    
