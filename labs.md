@@ -32,40 +32,57 @@ code auth.py
 code datastore.py
 ```
 
-2. Let's see how we can create a standalone index for the code. In the *extra* directory in the project are a set of python tools for this.
-   Run the command below to create a standalone index using ChromaDB for our code. (If you want to understand more about how these work, you can look at the actual code in the Python files in *extra*).
+![Viewing app files](./images/sdlc2.png?raw=true "Viewing app files")
+
+2. Let's see how we can create a standalone index for the code that the AI can leverage to get more details. In the *extra* directory in the project are a set of python tools for this. Run the command below to create a standalone index using ChromaDB for our code. (If you want to understand more about how these work, you can look at the actual code in the Python files in *extra*).
    
 ```
 python ../extra/index_code.py
 ```
-3. This created an index that is persisted at <insert location>. Now we can run a simply search tool to find out more about our code. Run the commands below and note the top hits that are returned.
+
+3. This created an index that is persisted in a *ChromaDB* database. Now we can run a simple search tool that will take whatever prompt/query we enter and return the primary match that it finds in the index of our codebase. Run the first command below. Then you can enter prompts like the next two lines. Type "exit" to quit.
 
 ```
-python ../extra/search.py "Where does the code use authentication"?
-python ../extra/search.py "Is there already a module that implements our data store?"
+python ../extra/search.py
+Where does the code use authentication?
+Is there already a module that implements our data store?
 ```
 
-4. After reviewing the results of the query, you can try out other queries if you want. What you are seeing here is just the hits from searching the vector
-   database that we created. To make this more useful, we would feed these hits to an LLM by adding to the prompt to give it more specific context. We can see how that works out by
-   letting Copilot in the codespace environment index our code. Click on the Copilot icon at the bottom and note that it does not say anything about an existing index.
+![Searching vector DB](./images/sdlc3.png?raw=true "Searching vector DB")
 
-<insert screenshot of clicking on Copilot icon and status pop-up>
+4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. We can see the end results of that by letting Copilot index our code in the codespace environment. Click on the Copilot icon at the bottom. If you see a blue button to Setup Copilot, go ahead and click on that. Then check the two checkboxes for "Code Completions (all files)" and "Code Completions (Python)".  After a few moments, if you click the icon again, you should see a line at the top of that dialog that says "Locally indexed". (There will also be a link next to it that says "Build remote index". That can be used to build an index on the GitHub side. We don't need to do that right now.)
 
-5. Now, let's have Copilot generate its own *index* of the code we have open in the IDE. 
+![Copilot locally indexed](./images/sdlc4.png?raw=true "Copilot locally indexed")
 
-6. Let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below.
+5. With the local index in place, let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below. (Note we are using the chat variable **#codebase** to tell Copilot to look at the complete set of code in our app.) 
 
 ```
-@workspace Where in this codebase do we enforce authentication?
-@workspace Is there already a module that implements our data store?
+Where in this #codebase do we enforce authentication?
 ```
 
-7. Note that the answers that come back have the information, but are also more conversational in their response.
+7. Note that the answers that come back have the information, but are also more conversational in their response. (The answer may vary in format and text depending on several factors.)
+
+![Copilot response to authentication](./images/sdlc5.png?raw=true "Copilot response to authentication")
+
+8. We can also try our other example. Enter the prompt below. After running, you should see something like the screenshot below.
+```
+Is there a module in our #codebase that handles data storage?
+```
+
+![Copilot response to datastore](./images/sdlc6.png?raw=true "Copilot response to datastore")
+
+9. Let's try one more query here. To demonstrate further how AI can help with planning, prompt Copilot with the prompt below (JWT = JSON Web Token):
+
+```
+What would it take to change #codebase to use JWT for authentication?
+```
+
+10. After this runs, you should see an answer in the chat screen similar to what's shown in the screenshot below. Notice that it includes not only text explanations, but also the changed code.
+
+![Copilot response to JWT](./images/sdlc7.png?raw=true "Copilot response to JWT")
 
 
-8. If you click on the Copilot icon again at the bottom, you can see that the pop-up dialog now shows the repository is indexed.
-
-9. Finally, let's run our app and see it in action. To start it, run the command below in the terminal.
+12. Finally, let's run our app and see it in action. To start it, run the command below in the terminal.
 
 ```
 python app.py
