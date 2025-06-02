@@ -192,6 +192,80 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 Lab 4: Testing
 Purpose: In this lab, we'll see how to use AI to generate tests for our code.
 
+1. For this lab, we'll utilize Copilot's Agent functionality again. To make sure we aren't carry over any of the previous chat conversation, start a new chat by clicking on the "+" sign in the upper right.
+
+2. Switch chat to "Agent mode" by clicking the drop-down next to Ask in the bottom of the text entry area.
+
+3. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat.
+
+```
+Write pytest unit tests for DataStore (all CRUD + search) and Flask integration tests for each endpoint (including auth failure).
+```
+
+4. As this runs, if you encounter points where Copilot wants to run commands in the terminal and offers a "Continue" button, go ahead and accept that. If it simply notes commands and stops, go ahead and copy and paste those into the terminal and run them.
+
+
+5. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files.
+
+6. If you have any failing tests, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal.
+
+7. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. Y
+
+```
+What else should we test? 
+```
+
+8. Copilot should suggest some other test cases and then ask if it should add them. You can tell it to add the most important ones with a prompt like the one below.
+
+```
+Yes, but just add the most important ones.
+```
+
+9. After this, it may also suggest a command in the terminal to run to verify the tests. If so, click on Continue.
+
+10. If the command fails, it should suggest a fix. If so, you can accept that and then complete the cycle. Save files with any changes.
+
+11. (Optional) If you have time and want, you can prompt the AI with other prompts for other testing, such as the following:
+
+```
+What edge cases should I test?
+How do I test for performance?
+How do I test for security?
+```
+
+Lab 5: Refactoring
+Purpose: In this lab, we'll see how to use the AI to refactor our code, breaking out some common functionality.
+
+1. Look at the code in the app.py file and notice that we have duplicate error-handling code for the *update_item* and *delete_item* call.
+
+2. Let's get Copilot to refactor the duplicate code into its own routine. Enter the prompt below:
+
+```
+Refactor app.py to remove duplicate error handling in update_item and delete_item by introducing a get_or_404 helper.
+```
+
+3. After this runs, you'll have suggested changes to the code.  Add Copilot as a reviewer again and see what it says.
+
+4. Now review the suggested changes and Copilot's review and decide what to keep or not.
+
+5. Now, let's look at another feature that Copilot can do to help with refactoring, called Copilot Edits. Switch the chat mode to "Edits" from "Agent" by clicking on the drop-down at the bottom of the chat dialog.
+
+6. Now let's add our *datastore.py* and *app.py* files as context. Select the *Attach context* item and select those two files.
+
+7. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
+
+8. Review the changes and Accept/Keep them if they look good.
+
+9. Now you can stop the running instance of the app and start another one.
+
+10. Now, you can try some of the same curl operations as you used previously and see if the results are logged.
+
+Lab 6: Documentation
+
+Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.
+
+1. 
+
 
 
 4. Hit return and notice the code that Copilot suggested. This is likely more generic than we want, but hit tab to select that line. (Note that you should give Copilot a second to provide code suggestions before moving on to the next line.)
