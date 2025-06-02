@@ -102,7 +102,10 @@ curl -i \
   -H "Authorization: Bearer secret-token" \
   http://127.0.0.1:5000/items/1
 
-
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
 Lab 2: Using AI during the development phase
 Purpose: In this lab, we'll see how to use an AI assistant to help implement a feature request to our codebase.
 
@@ -157,6 +160,10 @@ curl -i \
   -H "Authorization: Bearer secret-token" \
   http://127.0.0.1:5000/items/search?q=milk
 ```
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
 
 Lab 3: Fixing bugs with AI
 Purpose: In this lab, we'll see how to fix bugs with AI.
@@ -189,6 +196,11 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 
 8. Now, you can repeat step #1 and hopefully you'll see a 404 error instead of a 500 one.
 
+
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
 Lab 4: Testing
 Purpose: In this lab, we'll see how to use AI to generate tests for our code.
 
@@ -233,6 +245,11 @@ How do I test for performance?
 How do I test for security?
 ```
 
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
 Lab 5: Refactoring
 Purpose: In this lab, we'll see how to use the AI to refactor our code, breaking out some common functionality.
 
@@ -260,56 +277,86 @@ Refactor app.py to remove duplicate error handling in update_item and delete_ite
 
 10. Now, you can try some of the same curl operations as you used previously and see if the results are logged.
 
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
 Lab 6: Documentation
 
 Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.
 
-1. 
-
-
-
-4. Hit return and notice the code that Copilot suggested. This is likely more generic than we want, but hit tab to select that line. (Note that you should give Copilot a second to provide code suggestions before moving on to the next line.)
-   
-5. After hitting tab, Copilot will generate another part of the function. (If not, you may need to hit return.) Hit tab to accept it. Continue until you get a complete function (or Copilot stops generating additional code suggestions). One example of what code may look like is below.
-
-![Copilot generated function](./images/cpho5.png?raw=true "Copilot generated function")
-   
-6. This prompt is not specific enough for Copilot to interpret what we want to do.  Highlight the code and delete it, so we can try again.
-
-7. Now type a comment at the top that says
+1. Let's start out by telling our AI to generate basic doc. In the inline chat, enter the following shortcut command:
 
 ```
-// function to parse url
-```
-8. Hit enter and you will probably see a similar line to
-
-```
-function parseURL(url) {
+/doc
 ```
 
-9. Just hit Tab to accept it and Enter again. Copilot should continue to respond with another suggestion. *Only if you're not getting responses from Copilot, hit return and type the comment below to nudge Copilot.*
+2. Notice after this, that only the function/method headers have comments.
+
+
+3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Enter the prompt below in Copilot.
 
 ```
-// parse url
-```
-![nudge comment](./images/cdd3.png?raw=true "nudge comment")   
-
-10. Continue to iterate with Copilot suggesting lines and you hitting *Tab* to accept each line and then *Enter* until the function is complete. You may get some blank lines along the way or for some lines you might need to hit Tab twice to accept the code if it is indented more. But just hit return until you get to the end of a function. (You will be at the end when the indentation is done.  Also Copilot may start to suggest another function in comments like // test...)
- 
-11. Let's do one more pass at getting a specific prompt for Copilot. Delete all the code currently in index.js. This time we will not enter a comment, but will enter a specific function name.
-Type the following in the empty file. (There are no parentheses after the *splitURLandReturnComponents* text.)  Do not hit tab or return yet.
-
-```
-function splitURLandReturn
+Verbosely comment all code so it is easy to follow and understand
 ```
 
-12.  With this function name, Copilot should suggest a full function definition - in fact it may suggest several.  To see the options, hover over the first line and a small window should appear. This window will show many options there are and provide "<" and ">" links to toggle between them.  If there is more than one, click on the "<" and ">" buttons to see the differences in the available suggestions.
+4. In the main chat window, switch the mode back to "Ask". Also, open a new chat window using the "+" control again in the top right.
 
-![alternative suggestions inline](./images/cdd221.png?raw=true "alternative suggestions inline")   
+5. Now, in the main chat window, enter the prompt below:
 
-When you find an alternative you like, go ahead and tab to select it. Note that some may be incomplete.
+```
+Generate Sphinx-style .rst API documentation for this Flask service
+```
+
+6. Review the documentation generated in the Chat. Let's save this. Highlight the output and then copy and save the output as a .md file.
+
+7. Let's try another example. Let's have the AI generate functional documentation that we can share with others. Use the prompt below for this:
+
+```
+Generate functional documentation for all API endpoints
+```
+8. Take a look at the output and save it if you want.
 
  <p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
+
+Lab 7: Onboarding/Explaining code
+
+Purpose: To show how AI can be used to explain code and also help with onboarding those new to a codebase.
+
+1. Switch back to Agent mode for this lab. (If you do it in Ask mode, it will try to answer for all the different types of files in the project, rather than just the "app" code.
+
+2. Let's start out having Copilot explain the code to us. Enter the prompt below in one of the chat interfaces.
+```
+Explain in simple terms how this code works
+```
+
+3. Someone just starting out with this code would need to also know how to run it, so let's have the AI explain how to do that as well.
+```
+Provide examples of how to run this code
+```
+
+4. Let's also use the AI to try and anticipate any potential issues new users may run into. Here's a prompt for that.
+```
+What are the most likely problems someone new to this codebase would run into. Explain the issue clearly and succinctly.
+```
+
+5. Let's take this a step further and have the AI create a general guide for new users to the code. You can use the prompt below:
+```
+Create an onboarding guide for anyone brand new to this code who will be working with it or maintaining it.
+```
+
+6. Finally, let's have the AI generate some basic Q&A to check understanding and learning for someone looking at the code. Try this prompt:
+```
+Construct 10 questions to check understanding of how the code works. Then prompt the user on each question and check the answer. If the answer is correct, provide positive feedback. If the answer is not correct, explain why and provide the correct answer.
+```
+
+ <p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
+**THE END**
