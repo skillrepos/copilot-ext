@@ -1,21 +1,15 @@
 # ai-sdlc
 Repository for Incorporating AI into your SDLC 
 
-These instructions will guide you through configuring a GitHub Codespaces environment that you can use to run the code if you want. 
+These instructions will guide you through configuring a GitHub Codespaces environment that you can use to run the code. 
 
-**1. If you want to have your own copy of this repository, you can fork it into your GitHub area via the **Fork** option at the top right.**
-
-![Forking repository](./images/3in1d.png?raw=true "Forking repository")
-
-<br><br>
-
-**2. Click on the button below to start a new codespace from this repository.**
+**1. Click on the button below to start a new codespace from this repository.**
 
 Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/ai-sdlc?quickstart=1)
 
 <br><br>
 
-**3. Then click on the option to create a new codespace.**
+**2. Then click on the option to create a new codespace.**
 
 ![Creating new codespace from button](./images/3in1a.png?raw=true "Creating new codespace from button")
 
