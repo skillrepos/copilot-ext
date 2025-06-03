@@ -23,8 +23,9 @@ class DataStore:
             item["name"] = new_name
         return item
 
-    def delete(self, item_id):
-        if item_id in self._items:
-            del self._items[item_id]
-        else:
+    def delete(self, item_id: int) -> None:
+        """Remove an item or raise KeyError."""
+        if item_id not in self._items:
+            # ← this will be caught higher up and turned into a 500
             raise KeyError(f"Item {item_id} not found")
+        del self._items[item_id]
