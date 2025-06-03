@@ -3,6 +3,7 @@ from auth import requires_auth
 from datastore import DataStore
 
 app = Flask(__name__)
+app.config["PROPAGATE_EXCEPTIONS"] = False 
 store = DataStore()
 
 @app.route('/items', methods=['GET'])
