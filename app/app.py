@@ -34,5 +34,12 @@ def delete_item(item_id):
     store.delete(item_id)
     return '', 204
 
+@app.route('/items/count', methods=['GET'])
+@requires_auth
+def count_items():
+    """Return the number of items in the list."""
+    count = len(store.get_all())
+    return jsonify({"count": count}), 200
+
 if __name__ == '__main__':
     app.run(debug=True)

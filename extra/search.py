@@ -1,12 +1,11 @@
 # search.py
 
 from sentence_transformers import SentenceTransformer
-
 import chromadb
 from chromadb.config import Settings, DEFAULT_TENANT, DEFAULT_DATABASE
 from chromadb import PersistentClient
 
-# same persistent store and embedding model
+# Initialize persistent client and embedding model
 db_client = PersistentClient(
     path="./chroma_db",
     settings=Settings(),
@@ -16,14 +15,14 @@ db_client = PersistentClient(
 
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
 
-def search(query: str, top_k: int = 3):
+def search(query: str, top_k: int = 1):
     coll = db_client.get_or_create_collection(name="codebase")
 
-    # sanity check
+    # Sanity check
     docs = coll.get()
     print(f"Collection contains {len(docs['documents'])} chunks.")
 
-    # embed the query in the same vector space
+    # Embed the query
     emb = embed_model.encode(query).tolist()
 
     results = coll.query(
@@ -37,7 +36,17 @@ def search(query: str, top_k: int = 3):
         return
 
     for doc, meta in zip(results["documents"][0], results["metadatas"][0]):
-        print(f'File: {meta["path"]} (chunk {meta["chunk_index"]})\n{doc}\n')
+        print(f'\nFile: {meta["path"]} (chunk {meta["chunk_index"]})\n{doc}\n')
+
 
 if __name__ == "__main__":
-    search("Where is authentication implemented?")
+    print("Enter your search query (type 'exit' to quit):")
+    while True:
+        user_input = input("🔍 Search: ").strip()
+        if user_input.lower() == "exit":
+            print("Exiting search.")
+            break
+        elif user_input:
+            search(user_input)
+        else:
+            print("Please enter a valid query.")
