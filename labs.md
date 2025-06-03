@@ -87,46 +87,27 @@ What would it take to change #codebase to use JWT for authentication?
 ```
 python app.py
 ```
-10. Now add a second terminal via ...
-
-11. You can try the various curl commands below to see the functionality. You can copy and paste each item separately.
-
-```
-# 1) Create an item:
-curl -i \
-  -H "Authorization: Bearer secret-token" \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Buy milk"}' \
-  http://127.0.0.1:5000/items
-
-# 2) List items:
-curl -i \
-  -H "Authorization: Bearer secret-token" \
-  http://127.0.0.1:5000/items
-
-
-# 3) Update an item:
-curl -i \
-  -X PATCH \
-  -H "Authorization: Bearer secret-token" \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Buy almond milk"}' \
-  http://127.0.0.1:5000/items/1
-
-# 4) Delete an item:
-curl -i \
-  -X DELETE \
-  -H "Authorization: Bearer secret-token" \
-  http://127.0.0.1:5000/items/1
 
  <p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
-Lab 2: Using AI during the development phase
-Purpose: In this lab, we'll see how to use an AI assistant to help implement a feature request to our codebase.
 
-1. Our code is missing a *search* feature currently. Try the following command in the terminal.
+**Lab 2: Using AI during the development phase**
+
+**Purpose: In this lab, we'll see how to use an AI assistant to help implement a feature request to our codebase.**
+
+1. Let's try out the app. Start the app running in the terminal via the command below:
+
+```
+python app.py
+```
+
+2. Next, let's open a second terminal to use for sending commands to the app. Right-click in the terminal and select *Split Terminal* to get a second terminal next to the current one.
+
+![Split terminal](./images/sdlc9.png?raw=true "Split terminal")
+
+4. Our code is missing a *search* feature currently. Try the following command in the terminal.
 
 ```
 # Search items:
@@ -135,9 +116,9 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-2. Notice that we get a 500 response indicating that the function cannot be completed.
+2. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
 
-3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link:  <add link for GitHub Issue #1>
+3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
 
 4. In order to use this information as context for the AI, we'll add the text of the issue to the AI's prompt context. First, we need to get the text from the issue.
 We have a script for this in our project. Run the command below to do this. (The "1" is the number of the GitHub Issue.)
@@ -148,34 +129,46 @@ We have a script for this in our project. Run the command below to do this. (The
 
 5. The output of running this file should be a new file in your project named FIX_ISSUE_1.md. You can click on it and open it up to view the contents.
 
+![Displaying file](./images/sdlc11.png?raw=true "Displaying file")
+
 6. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
 
-7. We now want to add this file as context for our prompt in the Chat panel. If you already have it open, then it may show up as the current context in the chat interface.
-If not, you can click on the "Add context" item in the prompt area and select it from the list that pops up. (You may have to scroll down to find it.)
+![Switch to Agent mode](./images/sdlc10.png?raw=true "Switch to Agent mode")
+
+7. We now want to add this file as context for our prompt in the Chat panel. Click on the "Add context" item in the prompt area and select it from the list that pops up. (You may have to scroll down to find it.)
+
+![Adding context](./images/sdlc13.png?raw=true "Adding context")
 
 8. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it.
 
 ```
-Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase (implementation only) that implements the requested feature."
+Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
+![Context and prompt](./images/sdlc15.png?raw=true "Context and prompt")
 
-9. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*.  Take a look at the diffs. When you are satisfied with
-the proposed changes, click on the *Keep* button in the *Files changed* dialog.
+9. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the +- icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog.
 
-10. Now, let's try the *search* operation again. In the terminal where you started the app running in Lab 1, kill the process (CTRL+C). Then run the app again.
+![Reviewing changes](./images/sdlc17.png?raw=true "Reviewing changes")
+
+10. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. In the terminal where you started the app running in Lab 1, kill the process (CTRL+C). Then run the app again.
 
 ```
 python app.py
 ```
 
-11. You can try the search operation with the same curl command as before. This time, it should run to completion (indicating whether or not the item you are
-searching for is found in the list).
+11. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
 ```
 # Search items:
 curl -i \
   -H "Authorization: Bearer secret-token" \
   http://127.0.0.1:5000/items/search?q=milk
+```
+
+12. To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the following command:
+
+```
+../scripts/use-app.sh
 ```
  <p align="center">
 **[END OF LAB]**
