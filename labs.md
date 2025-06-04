@@ -296,32 +296,58 @@ How do I test for security in #codebase?
 </p>
 </br></br></br>
 
-Lab 5: Refactoring
-Purpose: In this lab, we'll see how to use the AI to refactor our code, breaking out some common functionality.
+**Lab 5: Refactoring**
 
-1. Look at the code in the app.py file and notice that we have duplicate error-handling code for the *update_item* and *delete_item* call.
+**Purpose: In this lab, we'll see how to use the AI to refactor our code, both for efficiency and improvements.**
 
-2. Let's get Copilot to refactor the duplicate code into its own routine. Enter the prompt below:
+1.  Change Copilot's mode back to "Ask".
+
+![Change to Ask](./images/sdlc39.png?raw=true "Change to Ask")
+
+2. Let's ask Copilot how we can refactor our code to be more efficient. Enter the prompt below.
 
 ```
-Refactor app.py to remove duplicate error handling in update_item and delete_item by introducing a get_or_404 helper.
+How can we factor #codebase to make our code more efficient?
 ```
 
-3. After this runs, you'll have suggested changes to the code.  Add Copilot as a reviewer again and see what it says.
+3. After this runs, you will likely see output like the screenshot.
 
-4. Now review the suggested changes and Copilot's review and decide what to keep or not.
+![Refactor suggestions](./images/sdlc40.png?raw=true "Refactor suggestions")
 
-5. Now, let's look at another feature that Copilot can do to help with refactoring, called Copilot Edits. Switch the chat mode to "Edits" from "Agent" by clicking on the drop-down at the bottom of the chat dialog.
+4. Below that, you should also have some suggested code changes. Hover over the code in the Chat window and a set of controls will pop up. Click on the leftmost one to apply the differences.
 
-6. Now let's add our *datastore.py* and *app.py* files as context. Select the *Attach context* item and select those two files.
+![Apply refactor suggestions](./images/sdlc41.png?raw=true "Apply refactor suggestions")
 
-7. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
+5. We're going to add Copilot as a reviewer. In order to see how it reacts to an error, let's introduce one. In one of the green sections where a change is being added, edit the code and change an instance of "None" to "one".
 
-8. Review the changes and Accept/Keep them if they look good.
+![Introduce error](./images/sdlc42.png?raw=true "Introduce error")
 
-9. Now you can stop the running instance of the app and start another one.
+6. Now, add Copilot as a reviewer. Highlight all the code, then right-click and select "Copilot"->"Review and Comment" from the menu.
 
-10. Now, you can try some of the same curl operations as you used previously and see if the results are logged.
+![Add Copilot as reviewer](./images/sdlc43.png?raw=true "Add Copilot as reviewer")
+
+7. After this runs, Copilot should catch the issue and add its comment. You can review its suggestion, then just click "Apply and Go to Next". After this, if there are other suggestions from Copilot, you can work your way through them deciding whether to apply them or not. *Make sure to Keep/Save changes when done.*
+![Working through reviews](./images/sdlc44.png?raw=true "Working through reviews")
+   
+8. Now, let's look at how to use Copilot to add another feature. Switch the chat mode to "Edit" by clicking on the drop-down at the bottom of the chat dialog. Then use the "Add Context" control to select our *datastore.py* and *app.py* files as context (if not already added). (You may need to click on "Files and Folders" in the context picker dialog.)
+
+![Add context](./images/sdlc45.png?raw=true "Add context")
+
+9. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
+
+![Logging prompt](./images/sdlc46.png?raw=true "Logging prompt")
+
+10. After this runs, you should see changes in *app.py*. There may also be review comments by Copilot. Navigate through them and Apply/Keep changes as warranted.
+
+![Logging changes made](./images/sdlc47.png?raw=true "Logging changes made")
+
+11. (Optional) To show that the logging works, you can use the script we used previously in the "scripts" directory named use-app.sh. Running it now should cause INFO messages to be output to stderr. (Don't forget to make sure the app is running first.)
+
+```
+../scripts/use-app.sh
+```
+
+![Logging events](./images/sdlc48.png?raw=true "Logging events")
 
  <p align="center">
 **[END OF LAB]**
