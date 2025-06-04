@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.5 - 06/03/25
+## Revision 1.6 - 06/04/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -388,7 +388,7 @@ Generate Sphinx-style .rst API documentation for this Flask service
 ```
 Generate functional documentation for all API endpoints
 ```
-8. Take a look at the output and save it if you want.
+8. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
 
  <p align="center">
 **[END OF LAB]**
