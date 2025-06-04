@@ -224,7 +224,7 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 
 10. Now, you can repeat step #1 and hopefully you'll see a 404 error "Not found" instead of a 500 one.
 
-![Fixed code](./images/sdlc26.png?raw=true "Fixed code")
+![Fixed code](./images/sdlc27.png?raw=true "Fixed code")
 
 <p align="center">
 **[END OF LAB]**
@@ -235,28 +235,37 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 
 **Purpose: In this lab, we'll see how to use AI to generate tests for our code.**
 
-1. For this lab, we'll utilize Copilot's Agent functionality again. To make sure we aren't carry over any of the previous chat conversation, start a new chat by clicking on the "+" sign in the upper right.
-
-2. Switch chat to "Agent mode" by clicking the drop-down next to Ask in the bottom of the text entry area.
-
-3. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat.
+1. For this lab, we'll utilize Copilot's Agent functionality again. Change the mode from "Edit" to "Agent" as you've done before. If a dialog pops up about changing the chat, just answer "Yes".
+   
+2. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat.
 
 ```
 Write pytest unit tests for DataStore (all CRUD + search) and Flask integration tests for each endpoint (including auth failure).
 ```
 
-4. As this runs, if you encounter points where Copilot wants to run commands in the terminal and offers a "Continue" button, go ahead and accept that. If it simply notes commands and stops, go ahead and copy and paste those into the terminal and run them.
+![Prompt for tests](./images/sdlc28.png?raw=true "Prompt for tests")
 
+3. As this runs, if you encounter points where Copilot wants to run commands in the terminal and/or offers a "Continue" button, go ahead and accept that. If it simply notes commands and stops, go ahead and copy and paste those into the terminal and run them.
 
-5. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files.
+![Continue to execute command](./images/sdlc30.png?raw=true "Continue to execute command")
 
-6. If you have any failing tests, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal.
+4. After the testing commands are run, you should hopefully see a clean run and the agent will notify you that things have completed successfully.
 
-7. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. Y
+![Clean test run](./images/sdlc31.png?raw=true "Clean test run")
+![Clean results](./images/sdlc32.png?raw=true "Clean results")
+
+5. If you have any failing tests, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal. Or, you can start a new Agent mode chat session by clicking the "+" sign in the upper left to start a new chat session and try the same prompt again.
+   
+6. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files with one of the *Keep* buttons.
+
+![New test files to keep](./images/sdlc33.png?raw=true "New test files to keep")
+
+7. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. 
 
 ```
-What else should we test? 
+What else in the #codebase should we test? 
 ```
+![What else](./images/sdlc34.png?raw=true "What else")
 
 8. Copilot should suggest some other test cases and then ask if it should add them. You can tell it to add the most important ones with a prompt like the one below.
 
@@ -264,16 +273,22 @@ What else should we test?
 Yes, but just add the most important ones.
 ```
 
+![Add most important](./images/sdlc35.png?raw=true "Add most important")
+
 9. After this, it may also suggest a command in the terminal to run to verify the tests. If so, click on Continue.
 
-10. If the command fails, it should suggest a fix. If so, you can accept that and then complete the cycle. Save files with any changes.
+![Add most important](./images/sdlc36.png?raw=true "Add most important")
 
-11. (Optional) If you have time and want, you can prompt the AI with other prompts for other testing, such as the following:
+11. If the command fails, it should suggest a fix. If so, you can accept that and then complete the cycle. Save files with any changes.
+
+![Add most important](./images/sdlc38.png?raw=true "Add most important")   
+
+12. (Optional) If you have time and want, you can prompt the AI with other prompts for other testing, such as the following:
 
 ```
-What edge cases should I test?
-How do I test for performance?
-How do I test for security?
+What edge cases in #codebase should I test?
+How do I test for performance in #codebase?
+How do I test for security in #codebase?
 ```
 
  <p align="center">
