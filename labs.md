@@ -175,8 +175,9 @@ curl -i \
 </p>
 </br></br></br>
 
-Lab 3: Fixing bugs with AI
-Purpose: In this lab, we'll see how to fix bugs with AI.
+**Lab 3: Fixing bugs with AI**
+
+**Purpose: In this lab, we'll see how to fix bugs with AI.**
 
 1. Let's see what happens if we try to delete a non-existent item in our list. Run the command below.
 
@@ -190,7 +191,11 @@ curl -i \
 
 2. Notice that the attempt returns a 500 return code indicating *server error*. We'd rather have it return a 404 error indicating *Not found*.
 
-3. So we have more control over changes, switch Copilot back to "Ask mode" by clicking on the drop-down at the bottom of the chat input dialog.
+![500 error](./images/sdlc18.png?raw=true "500 error")
+
+3. Select/open the app.py file in the editor so it will be the current context. Then, so we have more control over changes, switch Copilot back to "Edit mode" by clicking on the drop-down at the bottom of the chat input dialog.
+
+![Switch mode](./images/sdlc21.png?raw=true "Switch mode")
 
 4. Now, let's let Copilot have a try at fixing this. Enter and submit the following prompt.
 
@@ -198,21 +203,37 @@ curl -i \
 Fix the delete endpoint so that deleting a missing item returns 404 JSON {error: 'Not found'} instead of a server error.
 ```
 
-5. After Copilot processes this, you should see some changed files again. Before we review them, let's add Copilot as a reviewer to have it take a look. Go to the first diff and right-click and select the menu item "Copilot" -> "Review and comment".
-
-6. Copilot should review the proposed changes and offer any suggestions. If it does have suggestions, you can choose to Accept/Keep or Discard/Undo them. Repeat this same process to have Copilot review all changes and Accept/Keep or Discard/Undo each one.
-
-7. Once you are satisfied with the set of changes and reviews, go ahead and click the Accept/Keep button for all the changes
-
-8. Now, you can repeat step #1 and hopefully you'll see a 404 error instead of a 500 one.
+![Fix delete](./images/sdlc22.png?raw=true "Fix delete")
 
 
- <p align="center">
+5. After Copilot processes this, you should see a changed app.py file. Let's add Copilot as a reviewer to have it take a look. Go to the diff (green part) and right-click and select the menu item "Copilot" -> "Review and comment".
+
+![Add Copilot review](./images/sdlc23.png?raw=true "Add Copilot review")
+
+6. You'll then need to select a range for it to review. You can just tell it to review the entire delete function.
+
+![Pick review range](./images/sdlc24.png?raw=true "Pick review range")
+
+7. Copilot should review the proposed changes and offer any suggestions. For this case, it will probably not have any suggestions, so you can just select "OK". If it does have suggestions, you can choose to Accept/Keep or Discard/Undo them. If there were multiple changes, you would repeat this same process to have Copilot review all changes and Accept/Keep or Discard/Undo each one.
+
+![Review output](./images/sdlc25.png?raw=true "Review output")
+
+8. Once you are satisfied with the set of changes and reviews, go ahead and click one of the Keep buttons to save the changes.
+
+![Keep](./images/sdlc26.png?raw=true "Keep")
+
+10. Now, you can repeat step #1 and hopefully you'll see a 404 error "Not found" instead of a 500 one.
+
+![Fixed code](./images/sdlc26.png?raw=true "Fixed code")
+
+<p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
-Lab 4: Testing
-Purpose: In this lab, we'll see how to use AI to generate tests for our code.
+
+**Lab 4: Testing**
+
+**Purpose: In this lab, we'll see how to use AI to generate tests for our code.**
 
 1. For this lab, we'll utilize Copilot's Agent functionality again. To make sure we aren't carry over any of the previous chat conversation, start a new chat by clicking on the "+" sign in the upper right.
 
