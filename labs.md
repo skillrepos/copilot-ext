@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.6 - 06/04/25
+## Revision 1.7 - 06/04/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -354,24 +354,30 @@ How can we factor #codebase to make our code more efficient?
 </p>
 </br></br></br>
 
-Lab 6: Documentation
+**Lab 6: Documentation**
 
-Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.
+**Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.**
 
-1. Let's start out by telling our AI to generate basic doc. In the inline chat, enter the following shortcut command:
+1. Let's start out by telling our AI to generate basic doc. Open the inline chat via Ctrl+I or Option+I and enter the following shortcut command:
 
 ```
 /doc
 ```
 
+![doc command](./images/sdlc49.png?raw=true "doc command")
+
+
 2. Notice after this, that only the function/method headers have comments.
 
+![doc results](./images/sdlc50.png?raw=true "doc results")
 
-3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Enter the prompt below in Copilot.
+3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Enter the prompt below in Copilot. You can also choose to change the model that's being used. Some of these will be higher cost than others. *Claude 3.7 Sonnet* should be the same cost.
 
 ```
 Verbosely comment all code so it is easy to follow and understand
 ```
+
+![verbose and change model](./images/sdlc51.png?raw=true "verbose and change model")
 
 4. In the main chat window, switch the mode back to "Ask". Also, open a new chat window using the "+" control again in the top right.
 
@@ -381,23 +387,29 @@ Verbosely comment all code so it is easy to follow and understand
 Generate Sphinx-style .rst API documentation for this Flask service
 ```
 
-6. Review the documentation generated in the Chat. Let's save this. Highlight the output and then copy and save the output as a .md file.
+![generate Sphinx-style doc](./images/sdlc52.png?raw=true "Generate Sphinx-style doc")
 
-7. Let's try another example. Let's have the AI generate functional documentation that we can share with others. Use the prompt below for this:
+6. Let's try another example. Let's have the AI generate functional documentation that we can share with others. Use the prompt below for this:
 
 ```
 Generate functional documentation for all API endpoints
 ```
-8. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
+
+![Generate functional doc](./images/sdlc53.png?raw=true "Generate functional doc")
+
+7. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
+
+
+![Save functional doc](./images/sdlc54.png?raw=true "Save functional doc")
 
  <p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
 
-Lab 7: Onboarding/Explaining code
+**Lab 7: Onboarding/Explaining code**
 
-Purpose: To show how AI can be used to explain code and also help with onboarding those new to a codebase.
+**Purpose: To show how AI can be used to explain code and also help with onboarding those new to a codebase.**
 
 1. Switch back to Agent mode for this lab. (If you do it in Ask mode, it will try to answer for all the different types of files in the project, rather than just the "app" code.
 
@@ -406,25 +418,37 @@ Purpose: To show how AI can be used to explain code and also help with onboardin
 Explain in simple terms how this code works
 ```
 
+![Explain code](./images/sdlc55.png?raw=true "Explain code")
+
+
 3. Someone just starting out with this code would need to also know how to run it, so let's have the AI explain how to do that as well.
 ```
 Provide examples of how to run this code
 ```
+
+![How to run](./images/sdlc56.png?raw=true "How to run")
 
 4. Let's also use the AI to try and anticipate any potential issues new users may run into. Here's a prompt for that.
 ```
 What are the most likely problems someone new to this codebase would run into. Explain the issue clearly and succinctly.
 ```
 
-5. Let's take this a step further and have the AI create a general guide for new users to the code. You can use the prompt below:
+![Most likely problems](./images/sdlc57.png?raw=true "Most likely problems")
+
+5. Let's take this a step further and have the AI create a general guide for new users to the code. You can use the prompt below. When done, you can hover over the code block and insert into a new file and then save as a .md file to see the formatting.
+   
 ```
 Create an onboarding guide for anyone brand new to this code who will be working with it or maintaining it.
 ```
+
+![Onboarding guide](./images/sdlc58.png?raw=true "Onboarding guide")
 
 6. Finally, let's have the AI generate some basic Q&A to check understanding and learning for someone looking at the code. Try this prompt:
 ```
 Construct 10 questions to check understanding of how the code works. Then prompt the user on each question and check the answer. If the answer is correct, provide positive feedback. If the answer is not correct, explain why and provide the correct answer.
 ```
+
+![Checking for understanding](./images/sdlc59.png?raw=true "Checking for understanding")
 
  <p align="center">
 **[END OF LAB]**
