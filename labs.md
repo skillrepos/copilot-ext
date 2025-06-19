@@ -105,7 +105,7 @@ python app.py
 
 ![Split terminal](./images/sdlc9.png?raw=true "Split terminal")
 
-4. Our code is missing a *search* feature currently. Try the following command in the terminal.
+4. Our code is missing a *search* feature currently. Try the following command in the new terminal.
 
 ```
 # Search items:
@@ -122,7 +122,7 @@ curl -i \
 We have a script for this in our project. Run the command below to do this. (The "1" is the number of the GitHub Issue.)
 
 ```
-./get-issue-info.sh 1
+../scripts/get-issue-info.sh 1
 ```
 
 5. The output of running this file should be a new file in your project named FIX_ISSUE_1.md. You can click on it and open it up to view the contents.
@@ -137,22 +137,18 @@ We have a script for this in our project. Run the command below to do this. (The
 
 ![Adding context](./images/sdlc13.png?raw=true "Adding context")
 
-8. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it.
+8. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (with the button that looks like an arrow head at the bottom right of the dialog).
 
 ```
 Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
 ![Context and prompt](./images/sdlc15.png?raw=true "Context and prompt")
 
-9. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the +- icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog.
+9. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
 
 ![Reviewing changes](./images/sdlc17.png?raw=true "Reviewing changes")
 
-10. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. In the terminal where you started the app running in Lab 1, kill the process (CTRL+C). Then run the app again.
-
-```
-python app.py
-```
+10. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
 
 11. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
@@ -163,7 +159,7 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-12. To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the following command:
+12. (Optional) To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the command below and then see it's output.
 
 ```
 ../scripts/use-app.sh
