@@ -105,7 +105,7 @@ python app.py
 
 ![Split terminal](./images/sdlc9.png?raw=true "Split terminal")
 
-4. Our code is missing a *search* feature currently. Try the following command in the new terminal.
+3. Our code is missing a *search* feature currently. Try the following command in the new terminal.
 
 ```
 # Search items:
@@ -114,43 +114,43 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-2. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
+4. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
 
-3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
+5. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
 
-4. In order to use this information as context for the AI, we'll add the text of the issue to the AI's prompt context. First, we need to get the text from the issue.
+6. In order to use this information as context for the AI, we'll add the text of the issue to the AI's prompt context. First, we need to get the text from the issue.
 We have a script for this in our project. Run the command below to do this. (The "1" is the number of the GitHub Issue.)
 
 ```
 ../scripts/get-issue-info.sh 1
 ```
 
-5. The output of running this file should be a new file in your project named FIX_ISSUE_1.md. You can click on it and open it up to view the contents.
+7. The output of running this file should be a new file in your project named FIX_ISSUE_1.md. You can click on it and open it up to view the contents.
 
 ![Displaying file](./images/sdlc11.png?raw=true "Displaying file")
 
-6. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
+8. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
 
 ![Switch to Agent mode](./images/sdlc10.png?raw=true "Switch to Agent mode")
 
-7. We now want to add this file as context for our prompt in the Chat panel. Click on the "Add context" item in the prompt area and select it from the list that pops up. (You may have to scroll down to find it.)
+9. We now want to add this file as context for our prompt in the Chat panel. Click on the "Add context" item in the prompt area and select it from the list that pops up. (You may have to scroll down to find it.)
 
 ![Adding context](./images/sdlc13.png?raw=true "Adding context")
 
-8. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (with the button that looks like an arrow head at the bottom right of the dialog).
+10. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (with the button that looks like an arrow head at the bottom right of the dialog).
 
 ```
 Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
 ![Context and prompt](./images/sdlc15.png?raw=true "Context and prompt")
 
-9. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
+11. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
 
 ![Reviewing changes](./images/sdlc17.png?raw=true "Reviewing changes")
 
-10. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
+12. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
 
-11. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
+13. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
 ```
 # Search items:
@@ -159,7 +159,7 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-12. (Optional) To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the command below and then see it's output.
+14. (Optional) To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the command below and then see it's output.
 
 ```
 ../scripts/use-app.sh
@@ -187,7 +187,7 @@ curl -i \
 
 ![500 error](./images/sdlc18.png?raw=true "500 error")
 
-3. Select/open the app.py file in the editor so it will be the current context. Then, so we have more control over changes, switch Copilot back to "Edit mode" by clicking on the drop-down at the bottom of the chat input dialog.
+3. Select/open the app.py file in the editor so it will be the current context. Then, so we have more control over changes, switch Copilot back to "Edit mode" by clicking on the drop-down at the bottom of the chat input dialog. If a dialog pops up about changing the chat, just answer "Yes".
 
 ![Switch mode](./images/sdlc21.png?raw=true "Switch mode")
 
@@ -235,9 +235,11 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 
 **Purpose: In this lab, we'll see how to use AI to generate tests for our code.**
 
-1. For this lab, we'll utilize Copilot's Agent functionality again. Change the mode from "Edit" to "Agent" as you've done before. If a dialog pops up about changing the chat, just answer "Yes".
+1. For this lab, we'll utilize Copilot's Agent functionality again. Let's start a new chat by clicking on the large "+" button in the upper right of the Chat panel. Then change the mode from "Edit" to "Agent" as you've done before. If a dialog pops up about changing the chat, just answer "Yes". 
+
+![New chat](./images/sdlc72.png?raw=true "New chat")
    
-2. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat.
+2. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat and submit.
 
 ```
 Write pytest unit tests for DataStore (all CRUD + search) and Flask integration tests for each endpoint (including auth failure).
@@ -249,33 +251,37 @@ Write pytest unit tests for DataStore (all CRUD + search) and Flask integration 
 
 ![Continue to execute command](./images/sdlc30.png?raw=true "Continue to execute command")
 
-4. After the testing commands are run, you should hopefully see a clean run and the agent will notify you that things have completed successfully.
+4. Another possibility is that it will stop with a "Let me know" type of statement. If it does, you can tell it to proceed or some similar statement as shown below.
+
+![Telling Copilot to proceed](./images/sdlc73.png?raw=true "Telling Copilot to proceed")
+
+5. After the testing commands are run, you should hopefully see a clean run and the agent will notify you that things have completed successfully. (If not, you may have to go through several iterations of interacting with Copilot while the agent fixes things to have passing tests.)
 
 ![Clean test run](./images/sdlc31.png?raw=true "Clean test run")
 ![Clean results](./images/sdlc32.png?raw=true "Clean results")
 
-5. If you have any failing tests, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal. Or, you can start a new Agent mode chat session by clicking the "+" sign in the upper left to start a new chat session and try the same prompt again.
+6. If you have any failing tests still, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal. Or, you can start a new Agent mode chat session by clicking the "+" sign in the upper left to start a new chat session and try the same prompt again.
    
-6. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files with one of the *Keep* buttons.
+7. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files with one of the *Keep* buttons.
 
 ![New test files to keep](./images/sdlc33.png?raw=true "New test files to keep")
 
-7. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. 
+8. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. 
 
 ```
 What else in the #codebase should we test? 
 ```
 ![What else](./images/sdlc34.png?raw=true "What else")
 
-8. Copilot should suggest some other test cases and then ask if it should add them. You can tell it to add the most important ones with a prompt like the one below.
+9. Copilot should suggest some other test cases and then ask if it should add them. You can tell it to add the most important ones with a prompt like the one below.
 
 ```
-Yes, but just add the most important ones.
+Just add the most important ones.
 ```
 
 ![Add most important](./images/sdlc35.png?raw=true "Add most important")
 
-9. After this, it may also suggest a command in the terminal to run to verify the tests. If so, click on Continue.
+10. After this, it may also suggest a command in the terminal to run to verify the tests. If so, click on Continue. Or it might tell you which ones are most important, and you have to tell it again to add them and go through the interactive process with it again.
 
 ![Add most important](./images/sdlc36.png?raw=true "Add most important")
 
