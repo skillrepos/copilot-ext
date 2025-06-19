@@ -51,45 +51,42 @@ Is there already a module that implements our data store?
 
 ![Searching vector DB](./images/sdlc3.png?raw=true "Searching vector DB")
 
-4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. We can see the end results of that by letting Copilot index our code in the codespace environment. Click on the Copilot icon at the bottom. If you see a blue button to Setup Copilot, go ahead and click on that. Then check the two checkboxes for "Code Completions (all files)" and "Code Completions (Python)".  After a few moments, if you click the icon again, you should see a line at the top of that dialog that says "Locally indexed". (There will also be a link next to it that says "Build remote index". That can be used to build an index on the GitHub side. We don't need to do that right now.)
+4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. We can see the end results of that by letting Copilot index our code in the codespace environment.
 
-![Copilot locally indexed](./images/sdlc4.png?raw=true "Copilot locally indexed")
+5. Click on the Copilot icon at the bottom. If you see a blue button to Setup Copilot, go ahead and click on that. Then check the two checkboxes for "Code Completions (all files)" and "Code Completions (Python)".  After a few moments, if you click the icon again, you should see a line near the middle of that dialog that either says "Locally indexed" or "Remotely indexed". 
 
-5. With the local index in place, let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below. (Note we are using the chat variable **#codebase** to tell Copilot to look at the complete set of code in our app.) 
+![Copilot indexed](./images/sdlc62.png?raw=true "Copilot indexed")
+
+6. With the index in place, let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below. (Note we are using the chat variable **#codebase** to tell Copilot to look at the complete set of code in our app.) 
 
 ```
 Where in this #codebase do we enforce authentication?
 ```
+![Prompting Copilot](./images/sdlc63.png?raw=true "Prompting Copilot")
 
 7. Note that the answers that come back have the information, but are also more conversational in their response. (The answer may vary in format and text depending on several factors.)
 
-![Copilot response to authentication](./images/sdlc5.png?raw=true "Copilot response to authentication")
+![Copilot response to authentication prompt](./images/sdlc64.png?raw=true "Copilot response to authentication prompt")
 
 8. We can also try our other example. Enter the prompt below. After running, you should see something like the screenshot below.
 ```
 Is there a module in our #codebase that handles data storage?
 ```
 
-![Copilot response to datastore](./images/sdlc6.png?raw=true "Copilot response to datastore")
+![Copilot response to datastore prompt](./images/sdlc66.png?raw=true "Copilot response to datastore prompt")
 
 9. Let's try one more query here. To demonstrate further how AI can help with planning, prompt Copilot with the prompt below (JWT = JSON Web Token):
 
 ```
 What would it take to change #codebase to use JWT for authentication?
 ```
+![Prompting Copilot](./images/sdlc67.png?raw=true "Prompting Copilot")
 
-10. After this runs, you should see an answer in the chat screen similar to what's shown in the screenshot below. Notice that it includes not only text explanations, but also the changed code.
+10. After this runs, you should see an answer in the chat screen similar to what's shown in the screenshot below. Notice that it includes not only text explanations, but also the changed code. If you scroll down, you'll likely see a summary of the changes needed.
 
-![Copilot response to JWT](./images/sdlc7.png?raw=true "Copilot response to JWT")
+![Copilot response to JWT prompt](./images/sdlc68.png?raw=true "Copilot response to JWT prompt")
 
-
-12. Finally, let's run our app and see it in action. To start it, run the command below in the terminal.
-
-```
-python app.py
-```
-
- <p align="center">
+<p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
