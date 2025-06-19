@@ -354,7 +354,7 @@ Refactor the files to make them more efficient.
 
 **Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.**
 
-1. Let's start out by telling our AI to generate basic doc. Open the inline chat via Ctrl+I or Option+I and enter the following shortcut command:
+1. Let's start out by telling our AI to generate basic doc for our app.py file. Open the app.py file in the editor if it isn't already. Activate the inline chat dialog via Ctrl+I or Option+I and enter the following shortcut command and hitting *Enter* or submitting it:
 
 ```
 /doc
@@ -363,21 +363,23 @@ Refactor the files to make them more efficient.
 ![doc command](./images/sdlc49.png?raw=true "doc command")
 
 
-2. Notice after this, that only the function/method headers have comments.
+2. After this, you'll probably see a large "chunk" of comments at the start of code. You can go ahead and "Accept" that via the button in the dialog.
 
 ![doc results](./images/sdlc50.png?raw=true "doc results")
 
-3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Enter the prompt below in Copilot. You can also choose to change the model that's being used. Some of these will be higher cost than others. *Claude 3.7 Sonnet* should be the same cost.
+3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Bring up the inline chat dialog and enter the prompt below in Copilot. You can also choose to change the model that's being used. In the dialog, it should list models that only "cost" the same from your quota to use. Hit Enter/submit when done. You might have to click an "Enable" button afterwards to enable the model access.
 
 ```
-Verbosely comment all code so it is easy to follow and understand
+Verbosely comment all code in this file so it is easy to follow and understand
 ```
 
-![verbose and change model](./images/sdlc51.png?raw=true "verbose and change model")
+![verbose and change model](./images/sdlc78.png?raw=true "verbose and change model")
 
-4. In the main chat window, switch the mode back to "Ask". Also, open a new chat window using the "+" control again in the top right.
+4. If you had to click the Enable button, you may need to input the same prompt again. Or, if don't see any results still, you can switch to a different model and try again.
+   
+5. In the main chat panel, open a new chat (using the "+" control in the top right) and switch the mode back to "Ask". 
 
-5. Now, in the main chat window, enter the prompt below:
+6. Now, in the main chat text area, enter the prompt below:
 
 ```
 Generate Sphinx-style .rst API documentation for this Flask service
@@ -385,16 +387,15 @@ Generate Sphinx-style .rst API documentation for this Flask service
 
 ![generate Sphinx-style doc](./images/sdlc52.png?raw=true "Generate Sphinx-style doc")
 
-6. Let's try another example. Let's have the AI generate functional documentation that we can share with others. Use the prompt below for this:
+7. Let's try another example. Let's have the AI generate simple functional documentation that we can share with others. Use the prompt below for this:
 
 ```
-Generate functional documentation for all API endpoints
+Generate functional documentation for the app
 ```
 
-![Generate functional doc](./images/sdlc53.png?raw=true "Generate functional doc")
+8. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
 
-7. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
-
+![Insert into new file](./images/sdlc83.png?raw=true "Insert into new file")
 
 ![Save functional doc](./images/sdlc54.png?raw=true "Save functional doc")
 
