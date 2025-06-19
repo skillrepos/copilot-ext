@@ -173,7 +173,7 @@ curl -i \
 
 **Purpose: In this lab, we'll see how to fix bugs with AI.**
 
-1. Let's see what happens if we try to delete a non-existent item in our list. Run the command below.
+1. Let's see what happens if we try to delete a non-existent item in our list. With the app still running, in the other terminal, run the command below in the second terminal.
 
 ```
 # Delete an item:
@@ -204,19 +204,25 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 
 ![Add Copilot review](./images/sdlc23.png?raw=true "Add Copilot review")
 
-6. You'll then need to select a range for it to review. You can just tell it to review the entire delete function.
+6. You'll then need to select a range for it to review. You can just tell it to review the entire delete_item function.
 
 ![Pick review range](./images/sdlc24.png?raw=true "Pick review range")
 
-7. Copilot should review the proposed changes and offer any suggestions. For this case, it will probably not have any suggestions, so you can just select "OK". If it does have suggestions, you can choose to Accept/Keep or Discard/Undo them. If there were multiple changes, you would repeat this same process to have Copilot review all changes and Accept/Keep or Discard/Undo each one.
+7. Copilot should review the proposed changes and offer any suggestions. For this case, it may or may not have any suggestions. If it doesn't have any suggestions ,you can just select "OK". If it does have suggestions, they will show up in a *COMMENTS* tab in the same area as the *TERMINAL* tab. You can then look at each one and decide whether to Apply/Discard using the provided buttons.
 
 ![Review output](./images/sdlc25.png?raw=true "Review output")
+
+![Review output](./images/sdlc70.png?raw=true "Review output")
 
 8. Once you are satisfied with the set of changes and reviews, go ahead and click one of the Keep buttons to save the changes.
 
 ![Keep](./images/sdlc26.png?raw=true "Keep")
 
-10. Now, you can repeat step #1 and hopefully you'll see a 404 error "Not found" instead of a 500 one.
+9. (Only if needed.) If Copilot got it wrong and you now have errors (reported in the *PROBLEMS* tab at the bottom), you can right click and select "Fix with Copilot" and follow-through on the process from there.
+
+![Fix if needed](./images/sdlc71.png?raw=true "Fix if needed")   
+
+10. Now, you can repeat step #1 (restart the app if it stopped) and hopefully you'll see a 404 error "Not found" instead of a 500 one.
 
 ![Fixed code](./images/sdlc27.png?raw=true "Fixed code")
 
