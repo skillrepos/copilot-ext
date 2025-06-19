@@ -304,50 +304,40 @@ How do I test for security in #codebase?
 
 **Lab 5: Refactoring**
 
-**Purpose: In this lab, we'll see how to use the AI to refactor our code, both for efficiency and improvements.**
+**Purpose: In this lab, we'll see how to use the AI to refactor targeted sets of code, both for efficiency and improvements.**
 
-1.  Change Copilot's mode back to "Ask".
+1.  Open a new chat and change Copilot's mode back to "Edit".
 
-![Change to Ask](./images/sdlc39.png?raw=true "Change to Ask")
+![Change to Edit](./images/sdlc75.png?raw=true "Change to Edit")
 
-2. Let's ask Copilot how we can refactor our code to be more efficient. Enter the prompt below.
+2. Now let's give the AI a targeted set of context to work with.  Add the 3 files (app/app.py, app/auth.py, and app/datastore.py) as context. You can do this in a couple of ways. You can drag and drop the files from the explorer file list on the left into the dialog area or you can use the "Add Context" button and select the files. (You may need to click on "Files and Folders" in the context picker dialog.) If other files show up as context, you can click on them in the dialog and an "X" should show up to remove them. (Or you can close them if they're open in the current tab in the IDE.)
 
-```
-How can we factor #codebase to make our code more efficient?
-```
-
-3. After this runs, you will likely see output like the screenshot.
-
-![Refactor suggestions](./images/sdlc40.png?raw=true "Refactor suggestions")
-
-4. Below that, you should also have some suggested code changes. Hover over the code in the Chat window and a set of controls will pop up. Click on the leftmost one to apply the differences.
-
-![Apply refactor suggestions](./images/sdlc41.png?raw=true "Apply refactor suggestions")
-
-5. We're going to add Copilot as a reviewer. In order to see how it reacts to an error, let's introduce one. In one of the green sections where a change is being added, edit the code and change an instance of "None" to "one".
-
-![Introduce error](./images/sdlc42.png?raw=true "Introduce error")
-
-6. Now, add Copilot as a reviewer. Highlight all the code, then right-click and select "Copilot"->"Review and Comment" from the menu.
-
-![Add Copilot as reviewer](./images/sdlc43.png?raw=true "Add Copilot as reviewer")
-
-7. After this runs, Copilot should catch the issue and add its comment. You can review its suggestion, then just click "Apply and Go to Next". After this, if there are other suggestions from Copilot, you can work your way through them deciding whether to apply them or not. *Make sure to Keep/Save changes when done.*
-![Working through reviews](./images/sdlc44.png?raw=true "Working through reviews")
-   
-8. Now, let's look at how to use Copilot to add another feature. Switch the chat mode to "Edit" by clicking on the drop-down at the bottom of the chat dialog. Then use the "Add Context" control to select our *datastore.py* and *app.py* files as context (if not already added). (You may need to click on "Files and Folders" in the context picker dialog.)
-
+![Selecting files for context](./images/sdlc76.png?raw=true "Selecting files for context")
 ![Add context](./images/sdlc45.png?raw=true "Add context")
+   
+3. Let's ask Copilot to refactor our selected files to be more efficient. Enter the prompt below.
 
-9. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
+```
+Refactor the files to make them more efficient.
+```
+
+4. After this runs, you will likely see output like the screenshot below. Copilot will analyze the targeted files and identify areas it thinks efficiencies can be made. It will then offer the usual diffs and Keep/Undo options.
+
+![Refactor suggestions](./images/sdlc77.png?raw=true "Refactor suggestions")
+
+5. You can go ahead and review the changes if you want and then Keep/Undo as needed. If you wanted, you could also add Copilot as a reviewer. (If you do add Copilot as a reviewer, don't forget to select the range in the pop-up dialog at the top.) Next steps assume you're done with those changes and have accepted (keep) or discarded (undo) them.
+
+6. Now, let's look at how to use Copilot to add another feature. Open a new chat via the "+" control at the top. This time, we'll just use  our *datastore.py* and *app.py* files as context (if not already added). You can use the same approach as in step 2 to get those files as context.
+
+7. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
 
 ![Logging prompt](./images/sdlc46.png?raw=true "Logging prompt")
 
-10. After this runs, you should see changes in *app.py*. There may also be review comments by Copilot. Navigate through them and Apply/Keep changes as warranted.
+8. After this runs, you should see changes in *app.py*. Navigate through them and Apply/Keep changes as warranted.
 
 ![Logging changes made](./images/sdlc47.png?raw=true "Logging changes made")
 
-11. (Optional) To show that the logging works, you can use the script we used previously in the "scripts" directory named use-app.sh. Running it now should cause INFO messages to be output to stderr. (Don't forget to make sure the app is running first.)
+9. (Optional) To show that the logging works, you can use the script we used previously in the "scripts" directory named use-app.sh. Running it now should cause INFO messages to be output to stderr. (Don't forget to make sure the app is running first in a separate terminal via *python app.py* If you hit errors running the app, it's possible that some edits could have affected the app code. You can compare against the original app code at https://github.com/skillrepos/ai-sdlc/blob/main/app/app.py.)
 
 ```
 ../scripts/use-app.sh
