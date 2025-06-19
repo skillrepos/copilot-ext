@@ -447,7 +447,9 @@ Construct 10 questions to check understanding of how the code works. Then prompt
 
 ![Checking for understanding](./images/sdlc59.png?raw=true "Checking for understanding")
 
-7. If you want, you can play along to check understanding. Just type your response in the chat dialog and then submit it. Copilot will tell you if the answer is right or wrong and then move on to the next question.
+7. If you want, you can play along to check understanding. Just type your response in the chat dialog and then submit it. Copilot will tell you if the answer is right or wrong (with any needed explanation) and then move on to the next question.
+
+![Checking for understanding](./images/sdlc84.png?raw=true "Checking for understanding")
    
  <p align="center">
 **[END OF LAB]**
