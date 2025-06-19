@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.8 - 06/04/25
+## Revision 1.9 - 06/19/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -11,10 +11,11 @@
 1. We will be working in the public GitHub.com, not a private instance.
 2. Chrome may work better than Firefox for some tasks.
 3. Substitute the appropriate key combinations for your operating system where needed.
-4. The default environment will be a GitHub Codespace (with Copilot already installed). If you prefer to use your own IDE, you are responsible for installing Copilot in it. Some things in the lab may be different if you use your own environment.
-5. To copy and paste in the codespace, you may need to use keyboard commands - CTRL-C and CTRL-V.**
-6. VPNs may interfere with the ability to run the codespace. It is recommended to not use a VPN if you run into problems.
-7. If you use the new free Copilot plan (no signup), some advanced functionality may not be available.
+4. We will be using the free version of GitHub Copilot for some steps.
+5. The default environment will be a GitHub Codespace (with Copilot already installed). If you prefer to use your own IDE, you are responsible for installing Copilot in it. Some things in the lab may be different if you use your own environment.
+6. To copy and paste in the codespace, you may need to use keyboard commands - CTRL-C and CTRL-V.**
+7. VPNs may interfere with the ability to run the codespace. It is recommended to not use a VPN if you run into problems.
+8. If you use the new free Copilot plan (no signup), some advanced functionality may not be available.
 </br></br></br>
 
 **Lab 1 - Using AI in Planning**
