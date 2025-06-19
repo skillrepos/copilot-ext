@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.9 - 06/19/25
+## Revision 1.10 - 06/19/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -447,6 +447,8 @@ Construct 10 questions to check understanding of how the code works. Then prompt
 
 ![Checking for understanding](./images/sdlc59.png?raw=true "Checking for understanding")
 
+7. If you want, you can play along to check understanding. Just type your response in the chat dialog and then submit it. Copilot will tell you if the answer is right or wrong and then move on to the next question.
+   
  <p align="center">
 **[END OF LAB]**
 </p>
