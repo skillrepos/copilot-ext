@@ -91,7 +91,7 @@ What would it take to change #codebase to use JWT for authentication?
 </p>
 </br></br></br>
 
-**Lab 2: Using AI during the development phase**
+**Lab 2: Using AI during the coding phase**
 
 **Purpose: In this lab, we'll see how to use an AI assistant to help implement a feature request to our codebase.**
 
@@ -231,7 +231,7 @@ Fix the delete endpoint so that deleting a missing item returns 404 JSON {error:
 </p>
 </br></br></br>
 
-**Lab 4: Testing**
+**Lab 4: Driving Testing with AI**
 
 **Purpose: In this lab, we'll see how to use AI to generate tests for our code.**
 
@@ -302,7 +302,7 @@ How do I test for security in #codebase?
 </p>
 </br></br></br>
 
-**Lab 5: Refactoring**
+**Lab 5: Refactoring and Updating Code via AI**
 
 **Purpose: In this lab, we'll see how to use the AI to refactor targeted sets of code, both for efficiency and improvements.**
 
@@ -350,7 +350,7 @@ Refactor the files to make them more efficient.
 </p>
 </br></br></br>
 
-**Lab 6: Documentation**
+**Lab 6: Easy Documentation with AI**
 
 **Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.**
 
@@ -404,7 +404,7 @@ Generate functional documentation for the app
 </p>
 </br></br></br>
 
-**Lab 7: Onboarding/Explaining code**
+**Lab 7: Using AI to Simplify Onboarding/Explaining Code**
 
 **Purpose: To show how AI can be used to explain code and also help with onboarding those new to a codebase.**
 
