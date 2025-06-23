@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.11 - 06/23/25
+## Revision 1.12 - 06/23/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -18,12 +18,15 @@
 8. VPNs may interfere with the ability to run the codespace. It is recommended to not use a VPN if you run into problems.
 
 </br></br></br>
+**If you are opening a file and the cursor is in the file, make sure to switch back to (click in) the terminal before running commands!**
+
+</br></br></br>
 
 **Lab 1 - Using AI in Planning**
 
 **Purpose: In this lab, we’ll see some ideas of how we can use AI in the Planning phase**
 
-1. For our labs in this workshop, we have a set of code that implements a simple to-do app written in Python with a toolkit called *Flask*.
+1. For our labs in this workshop, we have a set of code that implements a simple *to-do* app, written in Python with a toolkit called *Flask*.
    The files for this app are in a subdirectory named *app*.  Change into that directory in the terminal and take a look at the app's files.
    To view the files, you can either click on them in the file list on the left or you can open them with the *code* commands below. But make sure to switch into the *app* directory.) 
 
@@ -34,13 +37,16 @@ code auth.py
 code datastore.py
 ```
 
-![Viewing app files](./images/sdlc2.png?raw=true "Viewing app files")
+![Viewing app files](./images/sdlc85.png?raw=true "Viewing app files")
 
-2. Let's see how we can create a standalone index for the code that the AI can leverage to get more details. In the *extra* directory in the project are a set of python tools for this. Run the command below to create a standalone index using ChromaDB for our code. (If you want to understand more about how these work, you can look at the actual code in the Python files in *extra*).
+2. Let's see how we can create a standalone index for the code that the AI can leverage to get more details. In the *extra* directory in the project are a set of python tools for this. Run the command below to create a standalone index using ChromaDB for our code. (If you want to understand more about how these work, you can look at the actual code in the Python files in *extra*). **This will take several minutes to run**.
    
 ```
 python ../extra/index_code.py
 ```
+</br></br>
+![Creating vector DB](./images/sdlc86.png?raw=true "Creating vector DB")
+
 
 3. This created an index that is persisted in a *ChromaDB* database. Now we can run a simple search tool that will take whatever prompt/query we enter and return the primary match that it finds in the index of our codebase. Run the first command below. Then you can enter prompts like the next two lines. Type "exit" to quit.
 
@@ -52,10 +58,13 @@ Is there already a module that implements our data store?
 
 ![Searching vector DB](./images/sdlc3.png?raw=true "Searching vector DB")
 
-4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. We can see the end results of that by letting Copilot index our code in the codespace environment.
+4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. Copilot does a version of this by *indexing* our code in the codespace environment.
 
 5. Click on the Copilot icon at the bottom. If you see a blue button to Setup Copilot, go ahead and click on that. Then check the two checkboxes for "Code Completions (all files)" and "Code Completions (Python)".  After a few moments, if you click the icon again, you should see a line near the middle of that dialog that either says "Locally indexed" or "Remotely indexed". 
 
+![Setup Copilot](./images/sdlc87.png?raw=true "Setup Copilot")
+
+</br></br>
 ![Copilot indexed](./images/sdlc62.png?raw=true "Copilot indexed")
 
 6. With the index in place, let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below. (Note we are using the chat variable **#codebase** to tell Copilot to look at the complete set of code in our app.) 
