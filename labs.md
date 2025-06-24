@@ -320,7 +320,7 @@ How do I test for security in #codebase?
 
 ![Change to Edit](./images/sdlc75.png?raw=true "Change to Edit")
 
-2. Now let's give the AI a targeted set of context to work with.  Add the 3 files (app/app.py, app/auth.py, and app/datastore.py) as context. You can do this in a couple of ways. You can drag and drop the files from the explorer file list on the left into the dialog area or you can use the "Add Context" button and select the files. (You may need to click on "Files and Folders" in the context picker dialog.) If other files show up as context, you can click on them in the dialog and an "X" should show up to remove them. (Or you can close them if they're open in the current tab in the IDE.)
+2. Now let's give the AI a targeted set of context to work with.  Add the 3 files (app/app.py, app/auth.py, and app/datastore.py) as context. You can do this in a couple of ways. You can drag and drop the files from the explorer file list on the left into the dialog area or you can use the "Add Context" button and select the files. (You may need to click on "Files and Folders" in the context picker dialog.) **If other files show up as context, you can click on them in the dialog and an "X" should show up to remove them. (Or you can close them if they're open in the current tab in the IDE.)**
 
 ![Selecting files for context](./images/sdlc76.png?raw=true "Selecting files for context")
 ![Add context](./images/sdlc45.png?raw=true "Add context")
@@ -335,7 +335,7 @@ Refactor the files to make them more efficient.
 
 ![Refactor suggestions](./images/sdlc77.png?raw=true "Refactor suggestions")
 
-5. You can go ahead and review the changes if you want and then Keep/Undo as needed. If you wanted, you could also add Copilot as a reviewer. (If you do add Copilot as a reviewer, don't forget to select the range in the pop-up dialog at the top.) Next steps assume you're done with those changes and have accepted (keep) or discarded (undo) them.
+5. You can go ahead and review the changes if you want and then Keep/Undo as needed. If you wanted, you could also add Copilot as a reviewer. (If you do add Copilot as a reviewer, don't forget to select the range in the pop-up dialog at the top.) **Next steps assume you're done with those changes and have accepted (keep) or discarded (undo) them.**
 
 6. Now, let's look at how to use Copilot to add another feature. Open a new chat via the "+" control at the top. This time, we'll just use  our *datastore.py* and *app.py* files as context (if not already added). You can use the same approach as in step 2 to get those files as context.
 
@@ -377,7 +377,7 @@ Refactor the files to make them more efficient.
 
 ![doc results](./images/sdlc50.png?raw=true "doc results")
 
-3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Bring up the inline chat dialog and enter the prompt below in Copilot. You can also choose to change the model that's being used. In the dialog, it should list models that only "cost" the same from your quota to use. Hit Enter/submit when done. You might have to click an "Enable" button afterwards to enable the model access.
+3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Bring up the inline chat dialog and enter the prompt below in Copilot. (Optional: You can also choose to change the model that's being used by clicking on the model name. In the dialog, select a model that is "1x" so it "cost" the same from your quota to use.  You might have to click an "Enable" button afterwards to enable the model access.)  Hit Enter/submit when done.
 
 ```
 Verbosely comment all code in this file so it is easy to follow and understand
@@ -385,11 +385,13 @@ Verbosely comment all code in this file so it is easy to follow and understand
 
 ![verbose and change model](./images/sdlc78.png?raw=true "verbose and change model")
 
-4. If you had to click the Enable button, you may need to input the same prompt again. Or, if don't see any results still, you can switch to a different model and try again.
+4. If you had to click the Enable button, you may need to input the same prompt again. Or, if don't see any results still, you can switch to a different model and try again. When ready, you can review the changes and select to "Accept" or "Close" in the inline chat dialog.
+
+![review changes](./images/sdlc89.png?raw=true "review changes")
    
 5. In the main chat panel, open a new chat (using the "+" control in the top right) and switch the mode back to "Ask". 
 
-6. Now, in the main chat text area, enter the prompt below:
+6. Let's generate documentation in the style of Sphinx (https://www.sphinx-doc.org/en/master/).  Now, in the main chat text area, enter the prompt below:
 
 ```
 Generate Sphinx-style .rst API documentation for this Flask service
