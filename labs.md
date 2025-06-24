@@ -1,7 +1,7 @@
 # Incorporating AI into your SDLC
 ## Leveraging AI tooling across the phases of your software development lifecycle
 ## Session labs 
-## Revision 1.12 - 06/23/25
+## Revision 1.13 - 06/23/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -147,18 +147,18 @@ We have a script for this in our project. Run the command below to do this. (The
 
 ![Adding context](./images/sdlc13.png?raw=true "Adding context")
 
-10. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (with the button that looks like an arrow head at the bottom right of the dialog).
+10. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (via *Enter* or with the button that looks like an arrow head at the bottom right of the dialog).
 
 ```
 Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
 ![Context and prompt](./images/sdlc15.png?raw=true "Context and prompt")
 
-11. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py*. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
+11. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py* - in a box above the Chat text entry area. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
 
-![Reviewing changes](./images/sdlc17.png?raw=true "Reviewing changes")
+![Reviewing changes](./images/sdlc88.png?raw=true "Reviewing changes")
 
-12. After clicking on the "Keep" button, you can close the  "Suggested Edits (2 files)" tab if you want. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
+12. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
 
 13. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
