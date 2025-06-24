@@ -28,7 +28,8 @@
 
 1. For our labs in this workshop, we have a set of code that implements a simple *to-do* app, written in Python with a toolkit called *Flask*.
    The files for this app are in a subdirectory named *app*.  Change into that directory in the terminal and take a look at the app's files.
-   To view the files, you can either click on them in the file list on the left or you can open them with the *code* commands below. But make sure to switch into the *app* directory.) 
+   To view the files, you can either click on them in the file list on the left or you can open them with the *code* commands below. But make sure to switch into the *app* directory.)
+<br><br>
 
 ```
 cd app
@@ -36,66 +37,73 @@ code app.py
 code auth.py
 code datastore.py
 ```
+<br>
 
 ![Viewing app files](./images/sdlc85.png?raw=true "Viewing app files")
 
+<br><br><br>
 2. Let's see how we can create a standalone index for the code that the AI can leverage to get more details. In the *extra* directory in the project are a set of python tools for this. Run the command below to create a standalone index using ChromaDB for our code. (If you want to understand more about how these work, you can look at the actual code in the Python files in *extra*). **This will take several minutes to run**.
-   
+ <br><br> 
 ```
 python ../extra/index_code.py
 ```
-</br></br>
+</br>
+
 ![Creating vector DB](./images/sdlc86.png?raw=true "Creating vector DB")
 
+<br><br><br>
 
 3. This created an index that is persisted in a *ChromaDB* database. Now we can run a simple search tool that will take whatever prompt/query we enter and return the primary match that it finds in the index of our codebase. Run the first command below. Then you can enter prompts like the next two lines. Type "exit" to quit.
-
+<br><br>
 ```
 python ../extra/search.py
 Where does the code use authentication?
 Is there already a module that implements our data store?
 ```
-
+<br><br>
 ![Searching vector DB](./images/sdlc3.png?raw=true "Searching vector DB")
-
+<br><br>
 4. What you are seeing here is just the hits from searching the vector database that we created. To make this more useful, we would get these hits to an LLM by adding to the prompt to give it more specific context. Copilot does a version of this by *indexing* our code in the codespace environment.
-
+<br><br>
 5. Click on the Copilot icon at the bottom. If you see a blue button to Setup Copilot, go ahead and click on that. Then check the two checkboxes for "Code Completions (all files)" and "Code Completions (Python)".  After a few moments, if you click the icon again, you should see a line near the middle of that dialog that either says "Locally indexed" or "Remotely indexed". 
-
+<br><br>
 ![Setup Copilot](./images/sdlc87.png?raw=true "Setup Copilot")
 
 </br></br>
 ![Copilot indexed](./images/sdlc62.png?raw=true "Copilot indexed")
-
+<br><br>
 6. With the index in place, let's see how Copilot responds to a generic request. Go to the Copilot Chat interface (on the right) and type in the prompt below. (Note we are using the chat variable **#codebase** to tell Copilot to look at the complete set of code in our app.) 
-
+<br><br>
 ```
 Where in this #codebase do we enforce authentication?
 ```
+<br><br>
 ![Prompting Copilot](./images/sdlc63.png?raw=true "Prompting Copilot")
-
+<br><br>
 7. Note that the answers that come back have the information, but are also more conversational in their response. (The answer may vary in format and text depending on several factors.)
-
+<br><br>
 ![Copilot response to authentication prompt](./images/sdlc64.png?raw=true "Copilot response to authentication prompt")
-
+<br><br>
 8. We can also try our other example. Enter the prompt below. After running, you should see something like the screenshot below.
+<br><br>
 ```
 Is there a module in our #codebase that handles data storage?
 ```
-
+<br><br>
 ![Copilot response to datastore prompt](./images/sdlc66.png?raw=true "Copilot response to datastore prompt")
-
+<br><br>
 9. Let's try one more query here. To demonstrate further how AI can help with planning, prompt Copilot with the prompt below (JWT = JSON Web Token):
-
+<br><br>
 ```
 What would it take to change #codebase to use JWT for authentication?
 ```
+<br><br>
 ![Prompting Copilot](./images/sdlc67.png?raw=true "Prompting Copilot")
-
+<br><br>
 10. After this runs, you should see an answer in the chat screen similar to what's shown in the screenshot below. Notice that it includes not only text explanations, but also the changed code. If you scroll down, you'll likely see a summary of the changes needed.
-
+<br><br>
 ![Copilot response to JWT prompt](./images/sdlc68.png?raw=true "Copilot response to JWT prompt")
-
+<br><br>
 <p align="center">
 **[END OF LAB]**
 </p>
