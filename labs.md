@@ -213,36 +213,39 @@ Link:  Generate classic personal access token (repo & workflow scopes) https://g
 
 ![Copying token](./images/mcp11.png?raw=true "Copying token")
 
-3. If not already in Agent mode, switch to *Agent* mode in the Copilot Chat panel via the drop-down at the bottom.
+3. Switch to *Agent* mode in the Copilot Chat panel via the drop-down at the bottom.
 
 ![Switching to Agent mode](./images/mcp12.png?raw=true "Switching to Agent mode")
 
-4. Now we need to add the GitHub MCP Server configuration in our IDE. You could fill most of this out via IDE prompts, but for simplicity, we already have a sample configuration file that we can just copy in. Run the command below in the terminal.
+4. Now we need to add the GitHub MCP Server configuration in our IDE. You could fill most of this out via IDE prompts, but for simplicity, we already have a sample configuration file that we can just copy in. Run the commands below in the terminal. The last one will open the file in the editor.
 
 ```
-cp ../extra/mcp.json  .vscode/mcp.json
+cd /workspaces/copilot-adv
+mkdir .vscode
+cp extra/mcp.json  .vscode/mcp.json
+open .vscode/mcp.json
 ```
 
-5. Now, we can start the local MCP server. In the *mcp.json* file, above the name of the server, click on the small *Start* link (see figure below). A dialog will pop up for you to paste in your PAT. Paste the token in there and hit *Enter*. (Note that the token will be masked out.)
+5. Now, we can start the local MCP server. In the editor in the *mcp.json* file, above the name of the server, click on the small *Start* link (see figure below). A dialog will pop up for you to paste in your PAT. Paste the token in there and hit *Enter*. (Note that the token will be masked out.)
 
 ![Starting the server](./images/mcp23.png?raw=true "Starting the server")
 
-After this, you should see the text above the server name change to "√Running | Stop | Restart | 51 tools | More...".
+After this, you should see the text above the server name change to "√Running | Stop | Restart | (*some number*) tools | More...".
 
 ![Starting the server](./images/mcp24.png?raw=true "Starting the server")
 
-6. To see the tools that are available, in the Copilot Chat dialog, click on the small *tool* icon (see figure) and then scroll down to the *MCP Server: GitHub MCP Server* section. You'll see the available tools we picked up under that.
+6. To see the tools that are available, in the Copilot Chat dialog, click on the small *tool* icon (see figure) and then scroll down to the *MCP Server: GitHub* section. You'll see the available tools we picked up under that.
 
-![Starting the server](./images/mcp25.png?raw=true "Starting the server")
+![Starting the server](./images/ac33.png?raw=true "Starting the server")
 
-7. Now that we have these tools available, we can use them in Copilot's Chat interface. (Again, you must be in *Agent* mode.) Here are some example prompts to try:
+7. Now that we have these tools available, we can use them in Copilot's Chat interface. (Again, you must be in *Agent* mode.) Here are some example prompts to try (note references in output to "> Ran <tool name> - GitHub (MCP Server)":
 
 ```
 Find username for <your name> on GitHub
-Show info on recent changes in skillrepos/mcp on GitHub
+Show info on recent changes in skillrepos/copilot-adv on GitHub
 ```
 </br></br>
-![Example usage](./images/mcp26.png?raw=true "Example usage")
+![Example usage](./images/ac34.png?raw=true "Example usage")
  <p align="center">
 **[END OF LAB]**
 </p>
