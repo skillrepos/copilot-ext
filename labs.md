@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.2 - 07/01/25
+## Revision 1.3 - 07/01/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -192,7 +192,7 @@ git stash
 ../scripts/use-app.sh
 ```
 
-![Logging events](./images/ac31.png?raw=true "Logging events")
+![Logging events](./images/ac32.png?raw=true "Logging events")
 
  <p align="center">
 **[END OF LAB]**
