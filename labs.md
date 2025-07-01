@@ -22,7 +22,7 @@
 
 </br></br></br>
 
-**Lab 1: Using Copilot For Onboarding and Explaining and Running Projects You're Not Familiar With**
+**Lab 1: Using Copilot For Onboarding, Explaining and Running Projects**
 
 **Purpose: In this lab, we'll look at how to use Copilot to help quickly get up to speed on any project**
 
