@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.1 - 07/01/25
+## Revision 1.2 - 07/01/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -26,53 +26,59 @@
 
 **Purpose: In this lab, we'll look at how to use Copilot to help quickly get up to speed on any project**
 
-1. For our labs in this workshop, we have a set of code that implements a simple to-do app, written in Python with a toolkit called Flask. We interact with it via curl commands for simplicity. The files for this app are in a subdirectory named app. Change into that directory in the terminal.
+1. For our labs in this workshop, we have a set of code that implements a simple to-do app, written in Python with a toolkit called *Flask*. We interact with it via curl commands for simplicity. The files for this app are in a subdirectory named app. Change into that directory in the terminal.
 
 ```
 cd app
 ```
 
-2. Since this is a new project, let's have Copilot produce some "onboarding" documentation for us. We'll use the #codebase chat variable to indicate it should do this against the contents of the current project. Enter the following prompt in the Copilot Chat dialog box and then submit it or hit *Enter*.
+![cd](./images/ac4.png?raw=true "cd")
+
+2. If the Copilot Chat panel is not visible on the right side of the codespace, open it by clicking on the small Copilot icon at the top. We need to be in "Ask" mode, so if the chat panel comes up with either "Edit" or "Agent" mode, click on the dropdown at the bottom and select "Ask". (See screenshot.)
+
+![open chat](./images/ac5.png?raw=true "open chat")
+
+3. Since this is a new project to us, let's have Copilot produce some "onboarding" documentation for us. We'll use the #codebase chat variable to indicate it should do this against the contents of the current project. Enter the following prompt in the Copilot Chat dialog box and then submit it or hit *Enter*. (If you see a momentary flash about "Sign in to access Copilot", just wait till the dialog returns and enter the prompt again.)
 
 ```
-Create an onboarding guide for #codebase
+Create an onboarding guide for #codebase. Do not create a separate block for it.
 ```
-![Onboarding prompt](./images/ac4.png?raw=true "Onboarding prompt")
+![Onboarding prompt](./images/ac11.png?raw=true "Onboarding prompt")
 
-3. After Copilot completes its processing, you should see a block of documentation that is the onboarding guide in the Chat area. (This will probably be under some text like "Here is an onboarding guide for the copilot-adv codebase:". Hover your cursor over that block of text, and a set of controls should pop up in the upper right. Click on the "..." at the end and then select "Insert into New File".
+4. After Copilot completes its processing, you should the onboarding documentation displayed in the Chat output area. You can scroll through it to learn more about the project if you want. (You could also copy and paste the contents into a .md (markdown) file if you wanted to save it separately.)
 
-![Insert into new file](./images/ac5.png?raw=true "Insert into new file")
+![Viewing the onboarding guide](./images/ac12.png?raw=true "Viewing the onboarding guide")
 
-4. This will create a new file with the documentation from Chat. The documentation is created in GitHub's markdown style. To view it best, in the new file, right-click and select "Reopen Editor with". In the dialog that pops up, type in "Markdown" (or scroll to the bottom of the list and select it.) Hit *Enter* and this should display the markdown as intended. You can scroll around the onboarding guide to learn more about the project.
 
-![Displaying as intended](./images/ac6.png?raw=true "Displaying as intended")
-
-5. Let's ask Copilot to explain how to demo the code. Enter the following prompt in the Chat dialog.
+5. Next, let's ask Copilot to explain how to demo the code. Enter the following prompt in the Chat dialog.
 
 ```
 Tell me how you would most easily demo the #codebase.
 ```
 
-![Explaining usage script](./images/ac7.png?raw=true "Explaining usage script")
+![Asking how to demo](./images/ac13.png?raw=true "Asking how to demo")
 
-6. In the Chat output, you'll see it reference a command to start the server and one to run an example usage script. Hover over the command to start the server and click the popup icon that looks like a terminal to insert it into the terminal.
+6. In the Chat output, you'll see it reference a command to start the server and one to run an example usage script. Hover over the command to start the server. If you see a popup icon that looks like a terminal, click on that to insert it into the terminal. If you don't see a terminal icon when you hover over it, click on the "..." at the end of the popup and select "Insert into terminal".
 
-![Enter command to start server](./images/ac8.png?raw=true "Enter command to start server")
+![Enter command to start server](./images/ac14.png?raw=true "Enter command to start server")
 
 7. In the terminal, hit Enter to actually start the server.
 
-![Enter command to start server](./images/ac8.png?raw=true "Enter command to start server")
+![Enter command to start server](./images/ac15.png?raw=true "Enter command to start server")
 
 8. Because the running server is using this terminal, we need to open a second terminal to run the script. Do this by right-clicking in the terminal and select "Split Terminal".
 
-![Split terminal](./images/ac9.png?raw=true "Split terminal") 
+![Split terminal](./images/ac16.png?raw=true "Split terminal") 
 
-9. Back in the chat interface, find the output section with the command to run the usage script. Hover over that command and click the popup icon that looks like a terminal to insert it into the terminal.
+9. Back in the chat interface, find the output section with the command to run the usage script. Hover over that command and click the popup icon that looks like a terminal or use the "..." and "Insert into terminal" sequence to insert it into the terminal.
 
-![Enter command to run script](./images/ac8.png?raw=true "Enter command to start server")
+![Enter command to run script](./images/ac17.png?raw=true "Enter command to run script")
 
 
-10. Hit *Enter* and you can see the script executing running commands against the server.
+10. Hit *Enter* and you can see the script executing running commands against the server. If you want to look more at what the script is doing, you can [view use-app.sh](scripts/use-app.sh)
+
+![Script output](./images/ac18.png?raw=true "Script output")
+
 
   
 
