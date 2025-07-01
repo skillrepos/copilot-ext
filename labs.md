@@ -148,7 +148,7 @@ curl -i \
 
 **Purpose: In this lab, we'll see how to use Copilot Edits functionality to refactor targeted sets of code, both for efficiency and improvements.**
 
-1.  Open a new chat and change Copilot's mode back to "Edit".
+1.  Open a new chat and change Copilot's mode to "Edit".
 
 ![Change to Edit](./images/sdlc75.png?raw=true "Change to Edit")
 
@@ -157,29 +157,36 @@ curl -i \
 ![Selecting files for context](./images/sdlc76.png?raw=true "Selecting files for context")
 ![Add context](./images/sdlc45.png?raw=true "Add context")
    
-3. Let's ask Copilot to refactor our selected files to be more efficient. Enter the prompt below.
+3. Let's ask Copilot to refactor our selected files to be more efficient. Enter the prompt below and submit it.
 
 ```
 Refactor the files to make them more efficient.
+Add logging for all endpoints. 
 ```
 
-4. After this runs, you will likely see output like the screenshot below. Copilot will analyze the targeted files and identify areas it thinks efficiencies can be made. It will then offer the usual diffs and Keep/Undo options.
+![Refactor prompts](./images/ac27.png?raw=true "Refactor prompts")
 
-![Refactor suggestions](./images/sdlc77.png?raw=true "Refactor suggestions")
+4. After this runs, you will likely see output like the screenshot below. Copilot will analyze the targeted files and suggest changes for efficiency and to add logging.
 
-5. You can go ahead and review the changes if you want and then Keep/Undo as needed. If you wanted, you could also add Copilot as a reviewer. (If you do add Copilot as a reviewer, don't forget to select the range in the pop-up dialog at the top.) **Next steps assume you're done with those changes and have accepted (keep) or discarded (undo) them.**
+![Change suggestions](./images/ac28.png?raw=true "Change suggestions")
 
-6. Now, let's look at how to use Copilot to add another feature. Open a new chat via the "+" control at the top. This time, we'll just use  our *datastore.py* and *app.py* files as context (if not already added). You can use the same approach as in step 2 to get those files as context.
+5. You can go ahead and review the changes if you want, and then Keep or Undo. To do the final step (where we show the logging, you need to Keep those changes at least.) After making the changes, let's stash the current state of the commands below. (This will give us a fallback in case subsequent steps happen to change anything in a way that breaks something.)
 
-7. Let's add logging to our functions. In the prompt area, add the prompt "Add logging for all endpoints". When ready, click Submit.
+```
+git stash
+```
 
-![Logging prompt](./images/sdlc46.png?raw=true "Logging prompt")
+6. Now, let's have Copilot review our current app code. Click on the *app.py* file and select all the code (either highlight it all or use CTRL+A). Then right-click and select *Copilot -> Review and Comment* from the menu.
 
-8. After this runs, you should see changes in *app.py*. Navigate through them and Apply/Keep changes as warranted.
+![Having Copilot review](./images/ac29.png?raw=true "Having Copilot review")
+   
 
-![Logging changes made](./images/sdlc47.png?raw=true "Logging changes made")
+7. After this runs, if Copilot has items worth noting, it will add them inline. You can scroll through the code to find the items that Copilot identified, along with any suggested changes.  If you want to apply the change you can select the "Apply and Go to Next" button. If you want to skip the change, you can click on the "Discard and Go to Next" button. If you look in the *COMMENTS* panel at the bottom (next to *TERMINAL*), you'll see all the comments listed. **If there are several, for the sake of time, it's suggested you pick just a couple to really inspect and discard the others**.
 
-9. (Optional) To show that the logging works, you can use the script we used previously in the "scripts" directory named use-app.sh. Running it now should cause INFO messages to be output to stderr. (Don't forget to make sure the app is running first in a separate terminal via *python app.py* If you hit errors running the app, it's possible that some edits could have affected the app code. You can compare against the original app code at https://github.com/skillrepos/ai-sdlc/blob/main/app/app.py.)
+![Reviewing suggestions](./images/ac30.png?raw=true "Reviewing suggestions")
+
+
+8. (Optional) To show that the logging works, you can use the script we used previously in the "scripts" directory named use-app.sh. Running it now should cause INFO messages to be output to stderr. (Don't forget to make sure the app is running first in a separate terminal via *python app.py* If you hit errors running the app, it's possible that some edits could have affected the app code. If you hit errors, you can ask Copilot to /fix the code or compare against the original app code at https://github.com/skillrepos/ai-sdlc/blob/main/app/app.py. Alternatively, you can do a "git stash pop" to get back to the code before review.)
 
 ```
 ../scripts/use-app.sh
