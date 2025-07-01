@@ -22,21 +22,65 @@
 
 </br></br></br>
 
-**Lab 2: Using AI during the coding phase**
+**Lab 1: Using Copilot For Onboarding and Explaining and Running Projects You're Not Familiar With**
 
-**Purpose: In this lab, we'll see how to use an AI assistant to help implement a feature request to our codebase.**
+**Purpose: In this lab, we'll look at how to use Copilot to help quickly get up to speed on any project**
 
-1. Let's try out the app. Start the app running in the terminal via the command below:
+1. For our labs in this workshop, we have a set of code that implements a simple to-do app, written in Python with a toolkit called Flask. The files for this app are in a subdirectory named app. Change into that directory in the terminal.
 
 ```
-python app.py
+cd app
 ```
 
-2. Next, let's open a second terminal to use for sending commands to the app. Right-click in the terminal and select *Split Terminal* to get a second terminal next to the current one.
+2. Since this is a new project, let's have Copilot produce some "onboarding" documentation for us. We'll use the #codebase chat variable to indicate it should do this against the contents of the current project. Enter the following prompt in the Copilot Chat dialog box and then submit it or hit *Enter*.
 
-![Split terminal](./images/sdlc9.png?raw=true "Split terminal")
+```
+Create an onboarding guide to #codebase
+```
+![Onboarding prompt](./images/ac4.png?raw=true "Onboarding prompt")
 
-3. Our code is missing a *search* feature currently. Try the following command in the new terminal.
+3. After Copilot completes its processing, you should see a block of documentation that is the onboarding guide in the Chat area. (This will probably be under some text like "Here is an onboarding guide for the copilot-adv codebase:". Hover your cursor over that block of text, and a set of controls should pop up in the upper right. Click on the "..." at the end and then select "Insert into New File".
+
+![Insert into new file](./images/ac5.png?raw=true "Insert into new file")
+
+4. This will create a new file with the documentation from Chat. The documentation is created in GitHub's markdown style. To view it best, in the new file, right-click and select "Reopen Editor with". In the dialog that pops up, type in "Markdown" (or scroll to the bottom of the list and select it.) Hit *Enter* and this should display the markdown as intended. You can scroll around the onboarding guide to learn more about the project.
+
+![Displaying as intended](./images/ac6.png?raw=true "Displaying as intended")
+
+5. Let's ask Copilot to explain how to demo the code. Enter the following prompt in the Chat dialog.
+
+```
+Tell me how you would most easily demo the #codebase.
+```
+
+![Explaining usage script](./images/ac7.png?raw=true "Explaining usage script")
+
+6. In the Chat output, you'll see it reference a command to start the server and one to run an example usage script. Hover over the command to start the server and click the popup icon that looks like a terminal to insert it into the terminal.
+
+![Enter command to start server](./images/ac8.png?raw=true "Enter command to start server")
+
+7. In the terminal, hit Enter to actually start the server.
+
+![Enter command to start server](./images/ac8.png?raw=true "Enter command to start server")
+
+8. Because the running server is using this terminal, we need to open a second terminal to run the script. Do this by right-clicking in the terminal and select "Split Terminal".
+
+![Split terminal](./images/ac9.png?raw=true "Split terminal") 
+
+9. Back in the chat interface, find the output section with the command to run the usage script. Hover over that command and click the popup icon that looks like a terminal to insert it into the terminal.
+
+![Enter command to run script](./images/ac8.png?raw=true "Enter command to start server")
+
+
+10. Hit *Enter* and you can see the script executing running commands against the server.
+
+  
+
+**Lab 2: Using Copilot's Agent Functionality to Implement a New Feature**
+
+**Purpose: In this lab, we'll see how to use Copilot to automatically implement a feature request to our codebase.**
+
+1. Our code is missing a *search* feature currently. Try the following command in the second terminal.
 
 ```
 # Search items:
@@ -45,22 +89,15 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-4. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
+2. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
 
-5. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
+![404 response](./images/ac9.png?raw=true "404 response")
 
-6. In order to use this information as context for the AI, we'll add the text of the issue to the AI's prompt context. First, we need to get the text from the issue.
-We have a script for this in our project. Run the command below to do this. (The "1" is the number of the GitHub Issue.)
+3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
 
-```
-../scripts/get-issue-info.sh 1
-```
+![Open issue](./images/ac10.png?raw=true "Open issue")
 
-7. The output of running this file should be a new file in your project named FIX_ISSUE_1.md. You can click on it and open it up to view the contents.
-
-![Displaying file](./images/sdlc11.png?raw=true "Displaying file")
-
-8. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
+5. Let's let Copilot's Agent mode have a shot at implementing the feature. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
 
 ![Switch to Agent mode](./images/sdlc10.png?raw=true "Switch to Agent mode")
 
