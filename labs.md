@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.0 - 06/30/25
+## Revision 1.1 - 07/01/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -200,63 +200,12 @@ Link:  Generate classic personal access token (repo & workflow scopes) https://g
 
 ![Switching to Agent mode](./images/mcp12.png?raw=true "Switching to Agent mode")
 
-4. Now we need to add the GitHub MCP Server configuration in our IDE. Start by pressing
- F1 to bring up the *Command Palette* and in the text area, type "mcp: add server" and press *Enter*.
-
-![Add MCP server item](./images/mcp13.png?raw=true "Add MCP server item")
-
-5. Select *HTTP (HTTP or Server-Sent Events)* as the type of MCP server to add.
-
-![Choose server type](./images/mcp14.png?raw=true "Choose server type")
-
-6. Enter the *Server URL*. You can copy it from the text below or type it in *carefully*.
+4. Now we need to add the GitHub MCP Server configuration in our IDE. You could fill most of this out via IDE prompts, but for simplicity, we already have a sample configuration file that we can just copy in. Run the command below in the terminal.
 
 ```
-https://api.github.com/mcp/
+cp ../extra/mcp.json  .vscode/mcp.json
 ```
-</br></br>
 
-![Enter server URL](./images/mcp15.png?raw=true "Enter server URL")
-
-7. Choose a *Server ID*. This is simply a name to refer to the MCP Server by. You can use the default or type in a more descriptive one as shown in the image.
-
-```
-GitHub MCP Server
-```
-</br></br>
-
-![Enter Server ID](./images/mcp16.png?raw=true "Enter Server ID")
-
-8. Choose where to save the configuration. Select the *Workspace Settings* option. This will create a *.vscode/mcp.json* settings file in your workspace.
-
-![Save configuration](./images/mcp21.png?raw=true "Save configuration")
-
-9. Now, we need to update the mcp.json file to authenticate and grab your personal access token (PAT) when it starts up. You can either replace the text in the current file with the text below or you can grab the text from the file *extra/mcp_github_settings.json*. After updating the file, it should look like the screenshot.
-
-```
-{
-    "servers": {
-      "GitHub": {
-        "type": "http",
-        "url": "https://api.githubcopilot.com/mcp/",
-        "headers": {
-          "Authorization": "Bearer ${input:github_token}"
-        }
-      }
-    },
-    "inputs": [
-      {
-        "id": "github_token",
-        "type": "promptString",
-        "description": "GitHub Personal Access Token",
-        "password": true
-      }
-    ]
-}
-```
-</br></br>
-
-![Updated configuration](./images/mcp22.png?raw=true "Updated configuration")
 
 10. Now, we can start the local MCP server. In the *mcp.json* file, above the name of the server, click on the small *Start* link (see figure below). A dialog will pop up for you to paste in your PAT. Paste the token in there and hit *Enter*. (Note that the token will be masked out.)
 
