@@ -192,7 +192,7 @@ git stash
 ../scripts/use-app.sh
 ```
 
-![Logging events](./images/sdlc48.png?raw=true "Logging events")
+![Logging events](./images/ac31.png?raw=true "Logging events")
 
  <p align="center">
 **[END OF LAB]**
