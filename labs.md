@@ -26,7 +26,7 @@
 
 **Purpose: In this lab, we'll look at how to use Copilot to help quickly get up to speed on any project**
 
-1. For our labs in this workshop, we have a set of code that implements a simple to-do app, written in Python with a toolkit called Flask. The files for this app are in a subdirectory named app. Change into that directory in the terminal.
+1. For our labs in this workshop, we have a set of code that implements a simple to-do app, written in Python with a toolkit called Flask. We interact with it via curl commands for simplicity. The files for this app are in a subdirectory named app. Change into that directory in the terminal.
 
 ```
 cd app
@@ -35,7 +35,7 @@ cd app
 2. Since this is a new project, let's have Copilot produce some "onboarding" documentation for us. We'll use the #codebase chat variable to indicate it should do this against the contents of the current project. Enter the following prompt in the Copilot Chat dialog box and then submit it or hit *Enter*.
 
 ```
-Create an onboarding guide to #codebase
+Create an onboarding guide for #codebase
 ```
 ![Onboarding prompt](./images/ac4.png?raw=true "Onboarding prompt")
 
