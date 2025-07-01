@@ -93,32 +93,28 @@ curl -i \
 
 ![404 response](./images/ac9.png?raw=true "404 response")
 
-3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/ai-sdlc/issues/1)
+3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/copilot-adv/issues/1)
 
 ![Open issue](./images/ac10.png?raw=true "Open issue")
 
-5. Let's let Copilot's Agent mode have a shot at implementing the feature. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
+4. Let's let Copilot's Agent mode have a shot at implementing the feature. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
 
-![Switch to Agent mode](./images/sdlc10.png?raw=true "Switch to Agent mode")
+![Switch to Agent mode](./images/ac11.png?raw=true "Switch to Agent mode")
 
-9. We now want to add this file as context for our prompt in the Chat panel. Click on the "Add context" item in the prompt area and select it from the list that pops up. (You may have to scroll down to find it.)
-
-![Adding context](./images/sdlc13.png?raw=true "Adding context")
-
-10. With the FIX_ISSUE_1.md file attached as context, enter the following prompt in the chat area and then submit it (via *Enter* or with the button that looks like an arrow head at the bottom right of the dialog).
+5. Enter the following prompt in the chat area and then submit it.
 
 ```
-Here's the full text of GitHub Issue #1. Propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
+Referencing the issue at https://github.com/skillrepos/copilot-adv/issues/1, propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
-![Context and prompt](./images/sdlc15.png?raw=true "Context and prompt")
+![Context and prompt](./images/ac12.png?raw=true "Context and prompt")
 
-11. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py* - in a box above the Chat text entry area. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
+6. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py* - in a box above the Chat text entry area. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
 
-![Reviewing changes](./images/sdlc88.png?raw=true "Reviewing changes")
+![Reviewing changes](./images/ac13.png?raw=true "Reviewing changes")
 
-12. Now, let's try the *search* operation again. If your app was running when you made the changes in step 9, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
+7. Now, let's try the *search* operation again. If your app was running when you made the changes in step 6, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
 
-13. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
+8. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
 ```
 # Search items:
@@ -127,7 +123,7 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-14. (Optional) To show that the search function actually returns an item after adding, there is a script in the "scripts" directory named use-app.sh. You can open it up and look at it. It adds a new item, lists it, then does a search and delete. You can run it with the command below and then see it's output.
+9. (Optional) To show that the search function actually returns an item after adding, you can run the *use-app.sh* script again. 
 
 ```
 ../scripts/use-app.sh
@@ -137,142 +133,10 @@ curl -i \
 </p>
 </br></br></br>
 
-**Lab 3: Fixing bugs with AI**
 
-**Purpose: In this lab, we'll see how to fix bugs with AI.**
+**Lab 3: Refactoring and Updating Code via Copilot Edits**
 
-1. Let's see what happens if we try to delete a non-existent item in our list. With the app still running, in the other terminal, run the command below in the second terminal.
-
-```
-# Delete an item:
-curl -i \
-  -X DELETE \
-  -H "Authorization: Bearer secret-token" \
-  http://127.0.0.1:5000/items/4
-```
-
-2. Notice that the attempt returns a 500 return code indicating *server error*. We'd rather have it return a 404 error indicating *Not found*.
-
-![500 error](./images/sdlc18.png?raw=true "500 error")
-
-3. Select/open the app.py file in the editor so it will be the current context. Then, so we have more control over changes, switch Copilot back to "Edit mode" by clicking on the drop-down at the bottom of the chat input dialog. If a dialog pops up about changing the chat, just answer "Yes".
-
-![Switch mode](./images/sdlc21.png?raw=true "Switch mode")
-
-4. Now, let's let Copilot have a try at fixing this. Enter and submit the following prompt.
-
-```
-Fix the delete endpoint so that deleting a missing item returns 404 JSON {error: 'Not found'} instead of a server error.
-```
-
-![Fix delete](./images/sdlc22.png?raw=true "Fix delete")
-
-
-5. After Copilot processes this, you should see a changed app.py file. Let's add Copilot as a reviewer to have it take a look. Go to the diff (green part) and right-click and select the menu item "Copilot" -> "Review and comment".
-
-![Add Copilot review](./images/sdlc23.png?raw=true "Add Copilot review")
-
-6. You'll then need to select a range for it to review. You can just tell it to review the entire delete_item function.
-
-![Pick review range](./images/sdlc24.png?raw=true "Pick review range")
-
-7. Copilot should review the proposed changes and offer any suggestions. For this case, it may or may not have any suggestions. If it doesn't have any suggestions ,you can just select "OK". If it does have suggestions, they will show up in a *COMMENTS* tab in the same area as the *TERMINAL* tab. You can then look at each one and decide whether to Apply/Discard using the provided buttons.
-
-![Review output](./images/sdlc25.png?raw=true "Review output")
-
-![Review output](./images/sdlc70.png?raw=true "Review output")
-
-8. Once you are satisfied with the set of changes and reviews, go ahead and click one of the Keep buttons to save the changes.
-
-![Keep](./images/sdlc26.png?raw=true "Keep")
-
-9. (Only if needed.) If Copilot got it wrong and you now have errors (reported in the *PROBLEMS* tab at the bottom), you can right click and select "Fix with Copilot" and follow-through on the process from there.
-
-![Fix if needed](./images/sdlc71.png?raw=true "Fix if needed")   
-
-10. Now, you can repeat step #1 (restart the app if it stopped) and hopefully you'll see a 404 error "Not found" instead of a 500 one.
-
-![Fixed code](./images/sdlc27.png?raw=true "Fixed code")
-
-<p align="center">
-**[END OF LAB]**
-</p>
-</br></br></br>
-
-**Lab 4: Driving Testing with AI**
-
-**Purpose: In this lab, we'll see how to use AI to generate tests for our code.**
-
-1. For this lab, we'll utilize Copilot's Agent functionality again. Let's start a new chat by clicking on the large "+" button in the upper right of the Chat panel. Then change the mode from "Edit" to "Agent" as you've done before. If a dialog pops up about changing the chat, just answer "Yes". 
-
-![New chat](./images/sdlc72.png?raw=true "New chat")
-   
-2. We want Copilot to generate unit tests for our datastore code and integration tests for each of our endpoints. Enter the prompt below into chat and submit.
-
-```
-Write pytest unit tests for DataStore (all CRUD + search) and Flask integration tests for each endpoint (including auth failure).
-```
-
-![Prompt for tests](./images/sdlc28.png?raw=true "Prompt for tests")
-
-3. As this runs, if you encounter points where Copilot wants to run commands in the terminal and/or offers a "Continue" button, go ahead and accept that. If it simply notes commands and stops, go ahead and copy and paste those into the terminal and run them.
-
-![Continue to execute command](./images/sdlc30.png?raw=true "Continue to execute command")
-
-4. Another possibility is that it will stop with a "Let me know" type of statement. If it does, you can tell it to proceed or some similar statement as shown below.
-
-![Telling Copilot to proceed](./images/sdlc73.png?raw=true "Telling Copilot to proceed")
-
-5. After the testing commands are run, you should hopefully see a clean run and the agent will notify you that things have completed successfully. (If not, you may have to go through several iterations of interacting with Copilot while the agent fixes things to have passing tests.)
-
-![Clean test run](./images/sdlc31.png?raw=true "Clean test run")
-![Clean results](./images/sdlc32.png?raw=true "Clean results")
-
-6. If you have any failing tests still, you can try adding a prompt of "Tests do not run cleanly" and submit that to Copilot. Again, accept any attempts to run things in the terminal. Or, you can start a new Agent mode chat session by clicking the "+" sign in the upper left to start a new chat session and try the same prompt again.
-   
-7. You should now see test files for app integration tests and unit tests for the datastore pieces. Make sure to save your testing files with one of the *Keep* buttons.
-
-![New test files to keep](./images/sdlc33.png?raw=true "New test files to keep")
-
-8. Now, let's see how else AI can help us with testing by entering a prompt (in the Chat panel and still in "Agent" mode) asking what else to test. 
-
-```
-What else in the #codebase should we test? 
-```
-![What else](./images/sdlc34.png?raw=true "What else")
-
-9. Copilot should suggest some other test cases and then ask if it should add them. You can tell it to add the most important ones with a prompt like the one below.
-
-```
-Just add the most important ones.
-```
-
-![Add most important](./images/sdlc35.png?raw=true "Add most important")
-
-10. After this, it may also suggest a command in the terminal to run to verify the tests. If so, click on Continue. Or it might tell you which ones are most important, and you have to tell it again to add them and go through the interactive process with it again.
-
-![Add most important](./images/sdlc36.png?raw=true "Add most important")
-
-11. If the command fails, it should suggest a fix. If so, you can accept that and then complete the cycle. Save files with any changes.
-
-![Add most important](./images/sdlc38.png?raw=true "Add most important")   
-
-12. (Optional) If you have time and want, you can prompt the AI with other prompts for other testing, such as the following:
-
-```
-What edge cases in #codebase should I test?
-How do I test for performance in #codebase?
-How do I test for security in #codebase?
-```
-
- <p align="center">
-**[END OF LAB]**
-</p>
-</br></br></br>
-
-**Lab 5: Refactoring and Updating Code via AI**
-
-**Purpose: In this lab, we'll see how to use the AI to refactor targeted sets of code, both for efficiency and improvements.**
+**Purpose: In this lab, we'll see how to use Copilot Edits functionality to refactor targeted sets of code, both for efficiency and improvements.**
 
 1.  Open a new chat and change Copilot's mode back to "Edit".
 
@@ -318,109 +182,102 @@ Refactor the files to make them more efficient.
 </p>
 </br></br></br>
 
-**Lab 6: Easy Documentation with AI**
+**Lab 4 - Extending Copilot's Utility via MCP Servers**
 
-**Purpose: In this lab, we'll see how to use AI to quickly and easily create different kinds of documentation for our project.**
+**Purpose: In this lab, we'll see how to connect GitHub Copilot to the GitHub MCP Server.**
 
-1. Let's start out by telling our AI to generate basic doc for our app.py file. Open the app.py file in the editor if it isn't already. Activate the inline chat dialog via Ctrl+I or Option+I and enter the following shortcut command and hitting *Enter* or submitting it:
+1. For authentication to GitHub, we will need a GitHub personal access token (PAT). When logged into GitHub, click on the link below, provide a note and click the green "Generate token" button at the bottom.
 
-```
-/doc
-```
+Link:  Generate classic personal access token (repo & workflow scopes) https://github.com/settings/tokens/new?scopes=repo,workflow
 
-![doc command](./images/sdlc49.png?raw=true "doc command")
-
-
-2. After this, you'll probably see a large "chunk" of comments at the start of code. You can go ahead and "Accept" that via the button in the dialog.
-
-![doc results](./images/sdlc50.png?raw=true "doc results")
-
-3. To get comments in the body of the code, we need to further prompt the AI. Let's tell Copilot to verbosely comment the code. Bring up the inline chat dialog and enter the prompt below in Copilot. (Optional: You can also choose to change the model that's being used by clicking on the model name. In the dialog, select a model that is "1x" so it "cost" the same from your quota to use.  You might have to click an "Enable" button afterwards to enable the model access.)  Hit Enter/submit when done.
-
-```
-Verbosely comment all code in this file so it is easy to follow and understand
-```
-
-![verbose and change model](./images/sdlc78.png?raw=true "verbose and change model")
-
-4. If you had to click the Enable button, you may need to input the same prompt again. Or, if don't see any results still, you can switch to a different model and try again. When ready, you can review the changes and select to "Accept" or "Close" in the inline chat dialog.
-
-![review changes](./images/sdlc89.png?raw=true "review changes")
+![Creating token](./images/mcp10.png?raw=true "Creating token")
    
-5. In the main chat panel, open a new chat (using the "+" control in the top right) and switch the mode back to "Ask". 
+2. On the next screen, make sure to copy the generated token and save it for use later in the lab. You will not be able to see the actual token again!
 
-6. Let's generate documentation in the style of Sphinx (https://www.sphinx-doc.org/en/master/).  Now, in the main chat text area, enter the prompt below:
+![Copying token](./images/mcp11.png?raw=true "Copying token")
+
+3. If not already in Agent mode, switch to *Agent* mode in the Copilot Chat panel via the drop-down at the bottom.
+
+![Switching to Agent mode](./images/mcp12.png?raw=true "Switching to Agent mode")
+
+4. Now we need to add the GitHub MCP Server configuration in our IDE. Start by pressing
+ F1 to bring up the *Command Palette* and in the text area, type "mcp: add server" and press *Enter*.
+
+![Add MCP server item](./images/mcp13.png?raw=true "Add MCP server item")
+
+5. Select *HTTP (HTTP or Server-Sent Events)* as the type of MCP server to add.
+
+![Choose server type](./images/mcp14.png?raw=true "Choose server type")
+
+6. Enter the *Server URL*. You can copy it from the text below or type it in *carefully*.
 
 ```
-Generate Sphinx-style .rst API documentation for this Flask service
+https://api.github.com/mcp/
 ```
+</br></br>
 
-![generate Sphinx-style doc](./images/sdlc52.png?raw=true "Generate Sphinx-style doc")
+![Enter server URL](./images/mcp15.png?raw=true "Enter server URL")
 
-7. Let's try another example. Let's have the AI generate simple functional documentation that we can share with others. Use the prompt below for this:
+7. Choose a *Server ID*. This is simply a name to refer to the MCP Server by. You can use the default or type in a more descriptive one as shown in the image.
 
 ```
-Generate functional documentation for the app
+GitHub MCP Server
 ```
+</br></br>
 
-8. After the documentation is generated, you can hover over the output and insert it into a new file if you want. If you then save the file with a .md extension, you'll be able to see the document in Markdown format. (You can use the three-bar menu, in the upper left of the codespace, then select "File", then "Save As...".)
+![Enter Server ID](./images/mcp16.png?raw=true "Enter Server ID")
 
-![Insert into new file](./images/sdlc83.png?raw=true "Insert into new file")
+8. Choose where to save the configuration. Select the *Workspace Settings* option. This will create a *.vscode/mcp.json* settings file in your workspace.
 
-![Save functional doc](./images/sdlc54.png?raw=true "Save functional doc")
+![Save configuration](./images/mcp21.png?raw=true "Save configuration")
 
- <p align="center">
-**[END OF LAB]**
-</p>
-</br></br></br>
+9. Now, we need to update the mcp.json file to authenticate and grab your personal access token (PAT) when it starts up. You can either replace the text in the current file with the text below or you can grab the text from the file *extra/mcp_github_settings.json*. After updating the file, it should look like the screenshot.
 
-**Lab 7: Using AI to Simplify Onboarding/Explaining Code**
-
-**Purpose: To show how AI can be used to explain code and also help with onboarding those new to a codebase.**
-
-1. Switch back to Agent mode for this lab. (If you do it in Ask mode, it will try to answer for all the different types of files in the project, rather than just the "app" code.
-
-2. Let's start out having Copilot explain the code to us. Enter the prompt below in one of the chat interfaces.
 ```
-Explain in simple terms how this code works
+{
+    "servers": {
+      "GitHub": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "Authorization": "Bearer ${input:github_token}"
+        }
+      }
+    },
+    "inputs": [
+      {
+        "id": "github_token",
+        "type": "promptString",
+        "description": "GitHub Personal Access Token",
+        "password": true
+      }
+    ]
+}
 ```
+</br></br>
 
-![Explain code](./images/sdlc55.png?raw=true "Explain code")
+![Updated configuration](./images/mcp22.png?raw=true "Updated configuration")
 
+10. Now, we can start the local MCP server. In the *mcp.json* file, above the name of the server, click on the small *Start* link (see figure below). A dialog will pop up for you to paste in your PAT. Paste the token in there and hit *Enter*. (Note that the token will be masked out.)
 
-3. Someone just starting out with this code would need to also know how to run it, so let's have the AI explain how to do that as well.
+![Starting the server](./images/mcp23.png?raw=true "Starting the server")
+
+After this, you should see the text above the server name change to "√Running | Stop | Restart | 51 tools | More...".
+
+![Starting the server](./images/mcp24.png?raw=true "Starting the server")
+
+11. To see the tools that are available, in the Copilot Chat dialog, click on the small *tool* icon (see figure) and then scroll down to the *MCP Server: GitHub MCP Server* section. You'll see the available tools we picked up under that.
+
+![Starting the server](./images/mcp25.png?raw=true "Starting the server")
+
+12. Now that we have these tools available, we can use them in Copilot's Chat interface. (Again, you must be in *Agent* mode.) Here are some example prompts to try:
+
 ```
-Provide examples of how to run this code
+Find username for <your name> on GitHub
+Show info on recent changes in skillrepos/mcp on GitHub
 ```
-
-![How to run](./images/sdlc56.png?raw=true "How to run")
-
-4. Let's also use the AI to try and anticipate any potential issues new users may run into. Here's a prompt for that.
-```
-What are the most likely problems someone new to this codebase would run into. Explain the issue clearly and succinctly.
-```
-
-![Most likely problems](./images/sdlc57.png?raw=true "Most likely problems")
-
-5. Let's take this a step further and have the AI create a general guide for new users to the code. You can use the prompt below. When done, you can hover over the code block and insert into a new file and then save as a .md file to see the formatting.
-   
-```
-Create an onboarding guide for anyone brand new to this code who will be working with it or maintaining it.
-```
-
-![Onboarding guide](./images/sdlc58.png?raw=true "Onboarding guide")
-
-6. Finally, let's have the AI generate some basic Q&A to check understanding and learning for someone looking at the code. Try this prompt:
-```
-Construct 10 questions to check understanding of how the code works. Then prompt the user on each question and check the answer. If the answer is correct, provide positive feedback. If the answer is not correct, explain why and provide the correct answer.
-```
-
-![Checking for understanding](./images/sdlc59.png?raw=true "Checking for understanding")
-
-7. If you want, you can play along to check understanding. Just type your response in the chat dialog and then submit it. Copilot will tell you if the answer is right or wrong (with any needed explanation) and then move on to the next question.
-
-![Checking for understanding](./images/sdlc84.png?raw=true "Checking for understanding")
-   
+</br></br>
+![Example usage](./images/mcp26.png?raw=true "Example usage")
  <p align="center">
 **[END OF LAB]**
 </p>
