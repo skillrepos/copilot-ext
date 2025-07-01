@@ -97,30 +97,37 @@ curl -i \
 
 2. Notice that we get a 404 response and a message indicating that the URL was not found on the server.
 
-![404 response](./images/ac9.png?raw=true "404 response")
+![404 response](./images/ac19.png?raw=true "404 response")
 
 3. In our repository, we already have a GitHub Issue for this feature. Take a look at it by clicking on this link: [GitHub Issue #1](https://github.com/skillrepos/copilot-adv/issues/1)
 
-![Open issue](./images/ac10.png?raw=true "Open issue")
+![Open issue](./images/ac20.png?raw=true "Open issue")
 
-4. Let's let Copilot's Agent mode have a shot at implementing the feature. In Copilot's Chat interface, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
+4. Let's let Copilot's Agent mode have a shot at implementing the feature. Open a new chat by clicking on the large "+" symbol in the top row of the Chat interface. Then, in Copilot's Chat entry area, change the mode to "Agent" by clicking on the drop-down labeled "Ask" at the bottom.
 
-![Switch to Agent mode](./images/ac11.png?raw=true "Switch to Agent mode")
+![Start new chat](./images/ac23.png?raw=true "Start new chat")
 
-5. Enter the following prompt in the chat area and then submit it.
+![Switch to Agent mode](./images/ac21.png?raw=true "Switch to Agent mode")
+
+5. Once in Agent mode, enter the following prompt in the chat area and then submit it.
 
 ```
 Referencing the issue at https://github.com/skillrepos/copilot-adv/issues/1, propose a diff to our Python codebase that implements the requested feature. Do not create or add any tests.
 ```
-![Context and prompt](./images/ac12.png?raw=true "Context and prompt")
+![Context and prompt](./images/ac22.png?raw=true "Context and prompt")
 
-6. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py* - in a box above the Chat text entry area. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  Take a look at the diffs. When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog. Then you can close the tab that was opened to show the comparisons.
+6. After Copilot processes the prompt, it should show two files changed - *app.py* and *datastore.py* - in a box above the Chat text entry area. Click on the "+ -"  icon on the right of the "2 files changed" area in the dialog. (See figure below).  
 
-![Reviewing changes](./images/ac13.png?raw=true "Reviewing changes")
+![View all edits](./images/ac24.png?raw=true "View all edits")
 
-7. Now, let's try the *search* operation again. If your app was running when you made the changes in step 6, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
+7. Take a look at the diffs (#1 and #2 in screenshot). When you are satisfied with the proposed changes, click on the *Keep* button in the *Files changed* dialog (#3 in screenshot). Then you can close the tab that was opened to show the comparisons.(#4 in screenshot)
 
-8. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
+![Review edits](./images/ac25.png?raw=true "Review edits")
+
+
+8. Now, let's try the *search* operation again. If your app was running when you made the changes in step 7, it should have automatically reloaded. If you see a message in its output of the sort "Detected change ... reloading", you should be good to go. But if you don't have that you can kill the process (CTRL+C) and then run the app again.
+
+9. You can try the search operation with the same curl command as before. This time, it should run and return a 200 code rather than 404 since the search endpoint is implemented. If the item is found, it will return the found item. If not, it returns the empty set "[]".
 
 ```
 # Search items:
@@ -129,12 +136,9 @@ curl -i \
   http://127.0.0.1:5000/items/search?q=milk
 ```
 
-9. (Optional) To show that the search function actually returns an item after adding, you can run the *use-app.sh* script again. 
+![Review edits](./images/ac26.png?raw=true "Review edits")
 
-```
-../scripts/use-app.sh
-```
- <p align="center">
+<p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
