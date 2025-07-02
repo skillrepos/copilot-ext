@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.3 - 07/01/25
+## Revision 1.4 - 07/01/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -53,14 +53,14 @@ Create an onboarding guide for #codebase. Do not create a separate block for it.
 5. Next, let's ask Copilot to explain how to demo the code. Enter the following prompt in the Chat dialog.
 
 ```
-Tell me how you would most easily demo the #codebase.
+Explain how I can run and see the functionality of #codebase.
 ```
 
-![Asking how to demo](./images/ac13.png?raw=true "Asking how to demo")
+![Asking how to run](./images/ac35.png?raw=true "Asking how to run")
 
 6. In the Chat output, you'll see it reference a command to start the server and one to run an example usage script. Hover over the command to start the server. If you see a popup icon that looks like a terminal, click on that to insert it into the terminal. If you don't see a terminal icon when you hover over it, click on the "..." at the end of the popup and select "Insert into terminal".
 
-![Enter command to start server](./images/ac14.png?raw=true "Enter command to start server")
+![Enter command to start server](./images/ac36.png?raw=true "Enter command to start server")
 
 7. In the terminal, hit Enter to actually start the server.
 
@@ -72,7 +72,7 @@ Tell me how you would most easily demo the #codebase.
 
 9. Back in the chat interface, find the output section with the command to run the usage script. Hover over that command and click the popup icon that looks like a terminal or use the "..." and "Insert into terminal" sequence to insert it into the terminal.
 
-![Enter command to run script](./images/ac17.png?raw=true "Enter command to run script")
+![Enter command to run script](./images/ac37.png?raw=true "Enter command to run script")
 
 
 10. Hit *Enter* and you can see the script executing running commands against the server. If you want to look more at what the script is doing, you can [view use-app.sh](scripts/use-app.sh)
