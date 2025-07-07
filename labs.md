@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.4 - 07/01/25
+## Revision 1.5 - 07/07/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -223,7 +223,7 @@ Link:  Generate classic personal access token (repo & workflow scopes) https://g
 cd /workspaces/copilot-adv
 mkdir .vscode
 cp extra/mcp.json  .vscode/mcp.json
-open .vscode/mcp.json
+code .vscode/mcp.json
 ```
 
 5. Now, we can start the local MCP server. In the editor in the *mcp.json* file, above the name of the server, click on the small *Start* link (see figure below). A dialog will pop up for you to paste in your PAT. Paste the token in there and hit *Enter*. (Note that the token will be masked out.)
