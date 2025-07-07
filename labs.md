@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.5 - 07/07/25
+## Revision 1.6 - 07/07/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -244,7 +244,9 @@ After this, you should see the text above the server name change to "√Running 
 Find username for <your name> on GitHub
 Show info on recent changes in skillrepos/copilot-adv on GitHub
 ```
-</br></br>
+
+8. Notice the mention of "Ran <tool name> - GitHub MCP Server (MCP Server) early in the output for each.
+
 ![Example usage](./images/ac34.png?raw=true "Example usage")
  <p align="center">
 **[END OF LAB]**
