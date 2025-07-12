@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.8 - 07/12/25
+## Revision 1.10 - 07/12/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -199,6 +199,8 @@ Add logging for all endpoints.
 
 ![Logging events](./images/ac32.png?raw=true "Logging events")
 
+9. You can stop the server via CTRL-C.
+
  <p align="center">
 **[END OF LAB]**
 </p>
@@ -258,4 +260,8 @@ Show info on recent changes in skillrepos/copilot-adv on GitHub
 </p>
 </br></br></br>
 
-**THE END**
+<p align="center">
+**[THAT'S ALL - THANKS!]**
+</p>
+</br></br></br>
+
