@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.6 - 07/07/25
+## Revision 1.7 - 07/12/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -34,9 +34,15 @@ cd app
 
 ![cd](./images/ac4.png?raw=true "cd")
 
-2. If the Copilot Chat panel is not visible on the right side of the codespace, open it by clicking on the small Copilot icon at the top. We need to be in "Ask" mode, so if the chat panel comes up with either "Edit" or "Agent" mode, click on the dropdown at the bottom and select "Ask". (See screenshot.)
+2. If the Copilot Chat panel is not visible on the right side of the codespace, open it by clicking on the small Copilot icon at the top. We need to be in "Ask" mode, so if the chat panel comes up with either "Edit" or "Agent" mode, click on the dropdown at the bottom and select "Ask". (See screenshot.) 
 
 ![open chat](./images/ac5.png?raw=true "open chat")
+
+(**NOTE**: If you don't see the option to switch modes, you may need to complete a setup step first. Look at the bottom bar for the Copilot icon. If you see "Finish Setup" next to it, click on that and then click on the "Set up Copilot" button.)
+
+
+![Finish Setup](./images/ac38.png?raw=true "Finish Setup")
+
 
 3. Since this is a new project to us, let's have Copilot produce some "onboarding" documentation for us. We'll use the #codebase chat variable to indicate it should do this against the contents of the current project. Enter the following prompt in the Copilot Chat dialog box and then submit it or hit *Enter*. (If you see a momentary flash about "Sign in to access Copilot", just wait till the dialog returns and enter the prompt again.)
 
