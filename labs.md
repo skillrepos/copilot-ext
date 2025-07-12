@@ -1,7 +1,7 @@
 # Advanced features in GitHub Copilot 
 ## Hands-on Workshop for AI in Production
 ## Session labs 
-## Revision 1.7 - 07/12/25
+## Revision 1.8 - 07/12/25
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
@@ -20,6 +20,9 @@
 </br></br></br>
 **If you are opening a file and the cursor is in the file, make sure to switch back to (click in) the terminal before running commands!**
 
+</br></br></br>
+
+*NOTE: In some cases the chat may generate commands to run in the terminal that assume you are in a subdirectory or not. If the command as pasted in the terminal does not work, check if the relative path is correct.*
 </br></br></br>
 
 **Lab 1: Using Copilot For Onboarding, Explaining and Running Projects**
@@ -158,12 +161,12 @@ curl -i \
 
 ![Change to Edit](./images/sdlc75.png?raw=true "Change to Edit")
 
-2. Now let's give the AI a targeted set of context to work with.  Add the 3 files (app/app.py, app/auth.py, and app/datastore.py) as context. You can do this in a couple of ways. You can drag and drop the files from the explorer file list on the left into the dialog area or you can use the "Add Context" button and select the files. (You may need to click on "Files and Folders" in the context picker dialog.) **If other files show up as context, you can click on them in the dialog and an "X" should show up to remove them. (Or you can close them if they're open in the current tab in the IDE.)**
+2. Now let's give the AI a targeted set of context to work with.  Add the 3 files from our app in the "app" directory (app/app.py, app/auth.py, and app/datastore.py) as context. You can do this in a couple of ways. You can drag and drop the files from the explorer file list on the left into the dialog area or you can use the "Add Context" button and select the files. (You may need to click on "Files and Folders" in the context picker dialog.) **If other files show up as context, you can click on them in the dialog and an "X" should show up to remove them. (Or you can close them if they're open in the current tab in the IDE.)**
 
 ![Selecting files for context](./images/sdlc76.png?raw=true "Selecting files for context")
 ![Add context](./images/sdlc45.png?raw=true "Add context")
    
-3. Let's ask Copilot to refactor our selected files to be more efficient. Enter the prompt below and submit it.
+3. Let's ask Copilot to refactor our selected files to be more efficient and add logging. Enter the prompt below and submit it.
 
 ```
 Refactor the files to make them more efficient.
@@ -176,11 +179,7 @@ Add logging for all endpoints.
 
 ![Change suggestions](./images/ac28.png?raw=true "Change suggestions")
 
-5. You can go ahead and review the changes if you want, and then Keep or Undo. To do the final step (where we show the logging, you need to Keep those changes at least.) After making the changes, let's stash the current state of the commands below. (This will give us a fallback in case subsequent steps happen to change anything in a way that breaks something.)
-
-```
-git stash
-```
+5. You can go ahead and review the changes if you want, and then Keep or Undo. To do the final step (where we show the logging, you need to Keep those changes at least.) 
 
 6. Now, let's have Copilot review our current app code. Click on the *app.py* file and select all the code (either highlight it all or use CTRL+A). Then right-click and select *Copilot -> Review and Comment* from the menu.
 
