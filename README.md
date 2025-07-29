@@ -1,4 +1,4 @@
-# Advanced Copilot
+# Advanced Copilot Workshop
 Repository for Advanced Copilot Workshop 
 
 These instructions will guide you through configuring a GitHub Codespaces environment that you can use to run the code. 
