@@ -63,21 +63,33 @@
 **Purpose**: Create a simpler Copilot extension using the skillset architecture to query Go language version information.
 
 ### Steps:
-1. Navigate to the skillset extension directory: `cd ../skillset-extension`
+1. Navigate to the skillset extension directory: `cd ../gover-ext`
 2. Compare implementations: `code -d complete/main.go partial/main.go`
 3. Notice the HTTP handler functions and API integration patterns
 4. Copy the missing handler implementations from complete to partial, focusing on the JSON parsing logic
 5. Build the Go application: `go build -o gover-ext main.go`
 6. Start the server: `./gover-ext`
 7. Make port 8080 public in your Codespace ports tab
-8. Create a new GitHub App following Lab 3 steps, but this time:
-   - Set app type to "Skillset" instead of "Agent"
-   - Add three skills with these configurations:
-     - **Skill 1**: Name: "Latest Go Version", URL: `<your-url>/latest-version-go`, Description: "Get the latest version of Go"
-     - **Skill 2**: Name: "Supported Versions", URL: `<your-url>/supported-versions-go`, Description: "Get currently supported Go versions"  
-     - **Skill 3**: Name: "Version Support", URL: `<your-url>/is-supported-or-eol`, Description: "Check if a Go version is supported or EOL"
-9. Test each skill: `@go-versions latest`, `@go-versions supported versions`, `@go-versions 1.21`
-10. Compare the simplicity of skillsets vs agents for API-based functionality
+8. Open in browser and test by going to <your-url>/latest-version-go
+
+## Lab 5: Configuring GitHub App for your Skillset Extension
+1. Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub
+2. Fill in the GitHub App form:
+   - **App Name**: `gover` (must be unique)
+   - **Homepage URL**: Your codespace repository URL
+   - **Callback URL**: Your public codespace URL + `/callback`
+3. Disable webhooks and set app visibility to "Only on this account"
+4. Click "Create GitHub App"
+5. Generate and download a private key when prompted
+6. Navigate to "Permissions & Events" on left, select "Account permissions" and grant "Copilot Chat: Read" permissions
+7. Go to the "Copilot" settings page, Accept Terms, and change app type from "Disabled" to "Skillset"
+8. Scroll down to "Skill definitions" section and click on "Add new skill".
+9.   - **Skill 1**: Name: "Latest-Go-Version", URL: `<your-url>/latest-version-go`, Description: "Get the latest version of Go"
+10. Add new skill - - **Skill 2**: Name: "Supported-Versions", URL: `<your-url>/supported-versions-go`, Description: "Get currently supported Go versions"
+11. Add new skill -     - **Skill 3**: Name: "Version-Support", URL: `<your-url>/is-supported-or-eol`, Description: "Check if a Go version is supported or EOL"
+12. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
+13. Test each skill: `@go-versions latest`, `@go-versions supported versions`, `@go-versions 1.21`
+14. Compare the simplicity of skillsets vs agents for API-based functionality
 
 ---
 
