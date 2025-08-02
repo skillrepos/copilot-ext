@@ -31,8 +31,9 @@
 6. Install dependencies: `npm install`
 7. Start the server: `npm start`
 8. In the Codespace, go to the Ports tab and make port 3000 public
-9. Copy the public URL for later use in the GitHub App configuration
-10. Test the basic server endpoint by visiting `<your-public-url>/_ping` in a browser
+9. Click to open/visit port 3000
+10. Give permission to access someone else's codespace
+11. Should see message in browser "Welcome to the Metafiles GitHub Copilot Extension"
 
 ---
 
@@ -49,11 +50,11 @@
 3. Disable webhooks and set app visibility to "Only on this account"
 4. Click "Create GitHub App"
 5. Generate and download a private key when prompted
-6. Navigate to "Permissions & Events" and grant "Copilot Chat: Read" permissions
-7. Go to the "Copilot" settings page and change app type from "Disabled" to "Agent"
-8. Add your public codespace URL in the URL field
+6. Navigate to "Permissions & Events" on left, select "Account permissions" and grant "Copilot Chat: Read" permissions
+7. Go to the "Copilot" settings page, Accept Terms, and change app type from "Disabled" to "Agent"
+8. Add your public codespace URL in the URL field under Agent Definition
 9. Add an inference description: "Generates .gitignore, .gitattributes, and LICENSE files for programming projects"
-10. Install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
+10. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
 
 ---
 
