@@ -1,11 +1,11 @@
-# Advanced Copilot Workshop
-Repository for Advanced Copilot Workshop 
+# Copilot Extensions Workshop
+Repository for Building Copilot Extensions 
 
 These instructions will guide you through configuring a GitHub Codespaces environment that you can use to run the code. 
 
 **1. Click on the button below to start a new codespace from this repository.**
 
-Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/copilot-adv?quickstart=1)
+Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/copilot-ext?quickstart=1)
 
 <br><br>
 
