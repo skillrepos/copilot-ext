@@ -105,7 +105,7 @@
 5. Install the extension dependencies: `npm install`
 6. Compile the TypeScript code: `npm run compile`
 7. Open the VS Code Command Palette (Ctrl+Shift+P) and run "Developer: Reload Window"
-8. Press F5 to launch a new VS Code window with your extension loaded
+8. Press F5 to launch a new VS Code window with your extension loaded (must have .vscode/launch.json)
 9. In the new window, open Copilot Chat and test your participant: `@apifinder weather APIs`
 10. Try the examples command: `@apifinder /examples payment processing Go`
 
