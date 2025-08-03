@@ -10,10 +10,13 @@
        "ghcr.io/devcontainers/features/docker-from-docker:1": {},
        "ghcr.io/devcontainers/features/github-cli:1": {},
        "ghcr.io/devcontainers/features/python:1": {},
+       "ghcr.io/devcontainers/features/go:1": {
+           "version": "latest"
+       },
        "node": {
-               "version": "lts",
-               "nodeGypDependencies": true
-        }
+           "version": "lts",
+           "nodeGypDependencies": true
+       }
     },
     "customizations": {
         "vscode": {
@@ -25,16 +28,16 @@
                   "plaintext": false,  
                   "markdown": false,
                   "scminput": false
-                 },   
-                 "workbench.startupEditor": "readme", 
-                 // Open Markdown files in preview mode by default
-                 "workbench.editorAssociations": {
-                     "*.md": "vscode.markdown.preview.editor"
-                 }
+                },   
+                "workbench.startupEditor": "readme", 
+                "workbench.editorAssociations": {
+                    "*.md": "vscode.markdown.preview.editor"
+                }
             },
             "extensions": [
                "mathematic.vscode-pdf",
-               "vstirbu.vscode-mermaid-preview"
+               "vstirbu.vscode-mermaid-preview",
+               "golang.go"
             ]
         }
     },
