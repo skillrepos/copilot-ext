@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Copilot Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/apifinder-ext"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/apifinder-ext/out/**/*.js"
+      ],
+      "preLaunchTask": "npm: build",
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
