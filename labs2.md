@@ -1,22 +1,63 @@
-# GitHub Copilot Extensions - Hands-On Labs
+# Creating GitHub Copilot Extensions
+## Extend Copilot with your own apps
+## Workshop labs 
+## Revision 1.01 - 08/04/25
 
-## Lab 1: Exploring and Installing Marketplace Extensions
+**Lab 1: Exploring and Installing Marketplace Extensions**
 
-**Purpose**: Learn to discover, install, and use publicly available GitHub Copilot extensions from the GitHub Marketplace.
+**Purpose: Learn to discover, install, and use publicly available GitHub Copilot extensions from the GitHub Marketplace.**
 
 ### Steps:
 1. Open your browser and navigate to [GitHub Marketplace](https://github.com/marketplace)
+   
 2. In the left sidebar, click on "Copilot" to filter for Copilot extensions
-3. Browse the available extensions and select the "GitHub Copilot" extension by GitHub (this is free and requires no additional signup)
-4. Click on the extension to view its details page
-5. Click the "Add" button to install the extension
-6. If prompted, authorize the extension for your repositories
-7. Open VS Code or GitHub Codespace with Copilot enabled
-8. In the Copilot Chat interface, type `@github` to invoke the extension
-9. Try asking: `@github what are the most popular programming languages on GitHub?`
-10. Observe how the extension provides GitHub-specific information that regular Copilot cannot access
+   
+3. Browse the available extensions and select the "Models (GitHub)" extension (this is free and requires no additional signup)
 
----
+![GitHub models extension](./images/ext15.png?raw=true "Copilot models extension")
+   
+5. Click on the extension to view its details page
+
+![GitHub models details](./images/ext16.png?raw=true "Copilot models details")
+
+6. Click the "Add" button to install the extension and then select the "Install it for free" button on the selected account.
+
+![GitHub models add](./images/ext17.png?raw=true "Copilot models add")
+
+7. Click through any confirmation dialogs for install.
+
+![GitHub models add](./images/ext18.png?raw=true "Copilot models add")
+
+8. Afterwards, you should see a screen that tells you the extension was installed for your account.
+
+![GitHub models installed](./images/ext19.png?raw=true "Copilot models installed")
+
+9. To see the extension in action, go to https://github.com/copilot in your browser. (Make sure this is in the browser where you are logged in to GitHub with the same GitHub userid as you used in the previous steps.) Then, in the chat area, you can enter a prompt for the new extension, such as the one below.
+
+```
+@models What models are available?
+```
+
+![Copilot models prompt](./images/ext20.png?raw=true "Copilot models prompt")
+
+10. If prompted, click on "Connect" to connect your account with Models. Then proceed through any other authorization screens.
+
+![Connect](./images/ext21.png?raw=true "Connect")
+
+![Authorize user](./images/ext22.png?raw=true "Authorize user")
+
+![Permissions](./images/ext23.png?raw=true "Permissions")
+   
+11. After the authorization steps are completed, you should be able to return to Copilot in the browser and see the results of your query.
+
+![Extension output](./images/ext24.png?raw=true "Extension output")
+   
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
 
 ## Lab 2: Creating Your First Agent-Based Extension
 
