@@ -119,15 +119,32 @@ npm start
 ![starting server](./images/ext30.png?raw=true "starting server")
 <br><br>
 
-7. We need to make the port 3000 *public* before continuing. Switch to the *PORTS* tab in the codespace. 
-12. Install dependencies: `npm install`
-13. Start the server: `npm start`
-14. In the Codespace, go to the Ports tab and make port 3000 public
-15. Click to open/visit port 3000
-16. Give permission to access someone else's codespace
-17. Should see message in browser "Welcome to the Metafiles GitHub Copilot Extension"
+7. We need to make the port 3000 *public* before continuing. Switch to the *PORTS* tab in the codespace. Then locate the row for port 3000. Right-click on the row and select *"Port Visibility"* from the pop-up menu and then select *"Public"*.
 
----
+![making port public](./images/ext31.png?raw=true "making port public")
+<br><br>
+
+8. Now you can open the page for the server process. Still in the *PORTS*, in the row for port 3000, hover over the *Forwarded Address* column. You should see several additional icons show up. Click on the one that looks like a sphere/globe to open the webpage.
+
+![opening page](./images/ext32.png?raw=true "opening page")
+<br><br>
+
+9. At this point, you will probably encounter a page warning you about accessing a development port served by someone's codespace. Just go ahead and click the green *Continue* button.
+
+![confirmation](./images/ext33.png?raw=true "confirmation")
+<br><br>
+
+10. Finally, you should see the welcome message from the server in the webpage. (In the next lab, we'll complete gettings things setup to use this as an extension.)
+
+![confirmation](./images/ext34.png?raw=true "confirmation")
+<br><br>
+ 
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
 
 ## Lab 3: Configuring the GitHub App for Your Agent Extension
 
