@@ -72,17 +72,60 @@
 **Purpose**: Build a custom Copilot extension using the agent architecture to generate development meta-files like .gitignore and LICENSE files.
 
 ### Steps:
-1. Open a GitHub Codespace and clone the repository: `git clone https://github.com/techupskills/learning-github-copilot.git`
-2. Navigate to the chapter 10 directory: `cd learning-github-copilot/chapter10/agent-extension`
-3. Compare the complete and partial implementations: `code -d complete/index.js partial/index.js`
-4. Study the differences, particularly the prompt engineering sections and the Express.js setup
-5. Copy the missing code from `complete/index.js` to `partial/index.js`, focusing on the system message prompts
-6. Install dependencies: `npm install`
-7. Start the server: `npm start`
-8. In the Codespace, go to the Ports tab and make port 3000 public
-9. Click to open/visit port 3000
-10. Give permission to access someone else's codespace
-11. Should see message in browser "Welcome to the Metafiles GitHub Copilot Extension"
+1. Switch to the GitHub Codespace in your browser and, working in the TERMINAL, cd into the *genmeta-ext* subdirectory.
+
+```
+cd genmeta-ext
+```
+
+![cd](./images/ext25.png?raw=true "cd")
+ <br><br>
+
+
+2. To keep things simple and avoid challenges with typing in code, we'll be building out files in this workshop by using a *compare and merge* process. The idea is to show a side-by-side final and partial implementation. To open this view, run the command below in the TERMINAL. Afterwards you should see an image like the one in the screenshot in your codespace.
+
+```
+code -d ../extra/index.js index.js
+```
+
+![diff](./images/ext26.png?raw=true "diff")
+<br><br>
+
+3. For each section that is in the final version on the left but not yet in the local version (on the right), take a look at the contents and try to understand what is being done. When ready, hover over the middle bar and you should see an arrow show up. Click on this arrow to merge the change from the file version on the left to the version on the right. Repeat the process for the other differences.
+
+![diff](./images/ext27.png?raw=true "diff")
+<br><br>
+
+4. When you are done merging all the changes in, the files should be identical. Click on the "x" in the tab at the top to close the diff view and save the changes.
+
+![done](./images/ext28.png?raw=true "done")
+<br><br>
+   
+5. Also, take a look at the *package.json* file to see how the app and operations are configured. No changes need to be made. 
+
+```
+code package.json
+```
+
+![package.json](./images/ext29.png?raw=true "package.json")
+<br><br>
+
+6. Now, we are ready to run the extension.  First in the TERMINAL, install the extensions and start the server with the commands below. After they run, you should see output indicating that the server is running on port 3000.
+
+```
+npm install
+npm start
+```
+![starting server](./images/ext30.png?raw=true "starting server")
+<br><br>
+
+7. We need to make the port 3000 *public* before continuing. Switch to the *PORTS* tab in the codespace. 
+12. Install dependencies: `npm install`
+13. Start the server: `npm start`
+14. In the Codespace, go to the Ports tab and make port 3000 public
+15. Click to open/visit port 3000
+16. Give permission to access someone else's codespace
+17. Should see message in browser "Welcome to the Metafiles GitHub Copilot Extension"
 
 ---
 
