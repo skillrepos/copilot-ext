@@ -446,32 +446,73 @@ cd gover-ext
 </br></br></br>
 
 
-## Lab 5: Creating a VS Code Extension for Copilot
+## Lab 6: Creating a VS Code Extension for Copilot
 
 **Purpose**: Develop a VS Code-specific Copilot extension that creates a chat participant for finding and documenting APIs.
 
 ### Steps:
-1. Navigate to the VS Code extension directory: `cd ../vscode-extension`
-2. Compare the TypeScript implementations: `code -d complete/src/extension.ts partial/src/extension.ts`
-3. Examine the differences in VS Code API usage, chat participant creation, and prompt handling
-4. Copy the missing code sections, particularly the chat handler logic and participant registration
-5. Install the extension dependencies: `npm install`
-6. Compile the TypeScript code: `npm run compile`
-7. Open the VS Code Command Palette (Ctrl+Shift+P) and run "Developer: Reload Window"
-8. Press F5 to launch a new VS Code window with your extension loaded (must have .vscode/launch.json)
-9. In the new window, open Copilot Chat and test your participant: `@apifinder weather APIs`
-10. Try the examples command: `@apifinder /examples payment processing Go`
+1. Navigate to the directory for the API Finder extension ("apifinder-ext").
+```
+cd ../apifinder-ext
+```
 
----
+2. This one uses a Typescript implementation for the extension. We'll use the diff and merge approach again to look at the code. Run the diff compare functionality with the command below.
 
-## Summary
+```
+code -d ../extra/extension.ts src/extension.ts
+```
 
-These labs have guided you through the complete spectrum of GitHub Copilot extensions:
+![code diff](./images/ext69.png?raw=true "code diff")
+<br><br>
 
-- **Lab 1**: Installing and using marketplace extensions
-- **Lab 2**: Creating agent-based extensions for complex interactions
-- **Lab 3**: Configuring GitHub Apps for extension deployment
-- **Lab 4**: Building skillset-based extensions for simple API calls
-- **Lab 5**: Developing VS Code-specific extensions with rich IDE integration
+3. As we did earlier, look at each difference to understand what the code is doing and, when ready, hover over the center bar, and click on the arrow to merge the changes in. Examine the differences in VS Code API usage, chat participant creation, and prompt handling.
 
-Each approach has its own strengths: agents for complex logic, skillsets for simple API calls, and VS Code extensions for deep IDE integration. Choose the architecture that best fits your specific use case and complexity requirements.
+![code diff](./images/ext70.png?raw=true "code diff")
+<br><br>
+
+4. Once you've merged all the changes, you can click on the "x" in the tab at the top to close the diff/merge view and save your changes.
+
+![close and save](./images/ext71.png?raw=true "close and save")
+<br><br>
+
+5. Now you can install dependencies for the extension and compile the TypeScript code with the following commands (ignore warnings):
+
+```
+npm install
+npm run compile
+```
+6. Open the VS Code Command Palette (Ctrl+Shift+P) and run "Developer: Reload Window"
+
+![reload window](./images/ext72.png?raw=true "reload window")
+<br><br>
+
+7. Now, press F5 to launch a new VS Code window with your extension loaded. (We have a .vscode/launch.json file in the root to support a debug launch.) If you get a dialog about not being able to find 'npm: build', just click on "Debug Anyway".
+
+![debug](./images/ext73.png?raw=true "debug")
+<br><br>
+
+8. This will start a new codespace instance. In the new instance, if the Copilot Chat panel is not visible, click on the Copilot icon at the top and select "Open Chat".
+
+![open chat](./images/ext74.png?raw=true "open chat")
+<br><br>
+   
+9. Now, in the dialog entry area for Chat, you can try out the new extension. Some suggested prompts to try are below.
+
+```
+@apifinder weather
+@apifinder /examples weather
+```
+
+![apifinder example](./images/ext75.png?raw=true "apifinder example")
+<br><br>
+
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
+
+<p align="center">
+**THANKS!**
+</p>
