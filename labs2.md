@@ -255,14 +255,80 @@ npm start
 **Purpose**: Create a simpler Copilot extension using the skillset architecture to query Go language version information.
 
 ### Steps:
-1. Navigate to the skillset extension directory: `cd ../gover-ext`
-2. Compare implementations: `code -d complete/main.go partial/main.go`
-3. Notice the HTTP handler functions and API integration patterns
-4. Copy the missing handler implementations from complete to partial, focusing on the JSON parsing logic
-5. Build the Go application: `go build -o gover-ext main.go`
-6. Start the server: `./gover-ext`
-7. Make port 8080 public in your Codespace ports tab
-8. Open in browser and test by going to <your-url>/latest-version-go
+1. Navigate to the skillset extension directory.
+
+```
+cd ../gover-ext
+```
+
+2. The code for this one is more straightforward. Take a look at the main.go file either by clicking to open it or using the command below. Notice that it basically dispatches the endpoints to separate handlers.
+
+```
+code main.go
+```
+
+3. Now you can look at the handlers, viewing the "latest version" one first. Notice that the code for it simply gets data from "https://go.dev/dl/?mode=json", checks for any errors and parses it for the response.
+
+```
+code handlers/latest_version.go
+```
+
+4. The code for the "supported versions" one does a similar process using results from "https://endoflife.date/api/go.json".
+
+```
+code handlers/supported_versions.go
+```
+
+5. Likewise, the final one for "is supported or end-of-life" uses a similar approach to an endpoint targeted for a particular release.
+
+```
+code handlers/is_supported_or_eol.go
+```
+
+6. Now we are ready to build the Go application. Run the command below in the *TERMINAL* from the *gover-ext* directory.
+
+```
+go build -o gover-ext main.go
+```
+
+7. When your build finishes, you should have an executable file named *gover-ext* in the current directory. Start the server by running this with the command below.
+
+```
+./gover-ext
+```
+
+![building and running server](./images/ext51.png?raw=true "building and running server")
+<br><br>
+
+
+8. As we did before, we need to make the port where the server is running public. Change to the *PORTS* tab, find the row for port 8080, right-click and select "Port Visibility" and then "Public".
+
+![changing port visibility](./images/ext52.png?raw=true "changing port visibility")
+<br><br>
+
+9. Also, while we're on the *PORTS* tab, let's copy the codespace local address again to use in the next lab (where'll we setup the corresponding GitHub app). In list of ports, right-click and select "Copy Local Address". Save the resulting value also to use in the next step.
+
+![Copying local address](./images/ext53.png?raw=true "copying local address")
+<br><br>
+
+10. Finally, let's verify that our server is working. Open a new tab, paste the copied address in for the URL and then add "/latest-version-go" onto the end of it. You will probably see a "warning" screen noting that you are about to access a development port served by someone's codespace.  Just click "Continue".
+
+```
+<copied local address>/latest-version-go
+```
+
+![Visiting endpoint](./images/ext54.png?raw=true "visiting endpoint")
+<br><br>
+
+11. At this point, you should see a response on the webpage showing the latest go version. If not, double-check that your server is still running in the codespace, the port is *public*, and that you have the correct URL.
+
+![Visiting endpoint](./images/ext55.png?raw=true "visiting endpoint")
+<br><br> 
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
 
 ## Lab 5: Configuring GitHub App for your Skillset Extension
 1. Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub
