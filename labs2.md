@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.01 - 08/04/25
+## Revision 1.02 - 08/04/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -124,17 +124,22 @@ npm start
 ![making port public](./images/ext31.png?raw=true "making port public")
 <br><br>
 
-8. Now you can open the page for the server process. Still in the *PORTS*, in the row for port 3000, hover over the *Forwarded Address* column. You should see several additional icons show up. Click on the one that looks like a sphere/globe to open the webpage.
+8. In preparation for the next lab, while we are here in the *PORTS* tab, in the row for port 3000, right-click and select "Copy local address". Save the value you copy for use in the next lab.
+
+![copying address](./images/ext42.png?raw=true "copying address")
+<br><br>
+
+9. Now you can open the page for the server process. Still in the *PORTS*, in the row for port 3000, hover over the *Forwarded Address* column. You should see several additional icons show up. Click on the one that looks like a sphere/globe to open the webpage.
 
 ![opening page](./images/ext32.png?raw=true "opening page")
 <br><br>
 
-9. At this point, you will probably encounter a page warning you about accessing a development port served by someone's codespace. Just go ahead and click the green *Continue* button.
+10. At this point, you will probably encounter a page warning you about accessing a development port served by someone's codespace. Just go ahead and click the green *Continue* button.
 
 ![confirmation](./images/ext33.png?raw=true "confirmation")
 <br><br>
 
-10. Finally, you should see the welcome message from the server in the webpage. (In the next lab, we'll complete gettings things setup to use this as an extension.)
+11. Finally, you should see the welcome message from the server in the webpage. (In the next lab, we'll complete gettings things setup to use this as an extension.)
 
 ![confirmation](./images/ext34.png?raw=true "confirmation")
 <br><br>
@@ -151,19 +156,70 @@ npm start
 **Purpose**: Learn to create and configure a GitHub App to bridge your agent extension with Copilot Chat.
 
 ### Steps:
-1. Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub
-2. Fill in the GitHub App form:
-   - **App Name**: `meta-files-generator` (must be unique)
-   - **Homepage URL**: Your codespace repository URL
-   - **Callback URL**: Your public codespace URL + `/callback`
-3. Disable webhooks and set app visibility to "Only on this account"
-4. Click "Create GitHub App"
-5. Generate and download a private key when prompted
-6. Navigate to "Permissions & Events" on left, select "Account permissions" and grant "Copilot Chat: Read" permissions
-7. Go to the "Copilot" settings page, Accept Terms, and change app type from "Disabled" to "Agent"
-8. Add your public codespace URL in the URL field under Agent Definition
-9. Add an inference description: "Generates .gitignore, .gitattributes, and LICENSE files for programming projects"
-10. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
+1.  Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
+   
+2. On that page, fill in the GitHub App form (for the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
+   - **App Name**: `metafiles-generator`
+   - **Description**: `Metafiles Generator` (or whatever text you want)
+   - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
+   - **Callback URL**: <local address with "/callback" on the end>
+  
+![app form part 1](./images/ext35.png?raw=true "app form part 1")
+<br><br>
+
+3. Scroll down on the page to the **Webhook** section and uncheck the *Active* box there.
+
+![app form part 2](./images/ext36.png?raw=true "app form part 2")
+<br><br>
+
+4. Scroll down to the **Permissions** section. Under *Account permissions*, select *Copilot Chat* and select *Read-only*.
+
+![app form part 3](./images/ext37.png?raw=true "app form part 3")
+<br><br>
+
+5. At the bottom of the page, click on *Create GitHub App*.
+
+![app form part 4](./images/ext38.png?raw=true "app form part 4")
+<br><br>
+
+6. You'll now be on a page where it should say *"Registration successful. You must generate a private key in order to install your GitHub App."* in a yellow box at the top. Click on the link to "generate a private key" and then, on the next screen, click on the green button to "Generate a private key." After that you should see a screen where your private key has been added.
+
+![app form part 5](./images/ext39.png?raw=true "app form part 5")
+<br><br>
+
+![app form part 6](./images/ext40.png?raw=true "app form part 6")
+<br><br>
+
+7. On the top left of that page, select "Copilot" from the menu on the left and change the *App Type* from "Disabled" to "Agent".
+
+![app form part 7](./images/ext41.png?raw=true "app form part 7")
+<br><br>
+
+8. Scroll down to the **Agent Definition** section and paste the local address you saved from lab 2 into the *URL* field. (Just as-is - you don't need to add anything to it.)
+    
+9. In the *Inference description* field, add an inference description such as the one below and then click on the *"Save"* button. Afterwards, you should see a screen that says *"Your GitHub App's Agent configuration has been updated."*.
+
+```
+Generates .gitignore, .gitattributes, and LICENSE files for programming projects
+```
+
+![app form part 8](./images/ext43.png?raw=true "app form part 8")
+<br><br>
+
+10. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps.
+
+```
+cd genmeta-ext
+npm start
+```
+
+11. Go to https://github.com/copilot and enter *@metafiles-generator* into the chat dialog. You will then be prompted to *Connect*. Click the green button to proceed.
+
+![app form part 9](./images/ext44.png?raw=true "app form part 9")
+<br><br>
+
+
+16. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
 
 ---
 
