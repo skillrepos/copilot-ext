@@ -279,19 +279,13 @@ code handlers/latest_version.go
 code handlers/supported_versions.go
 ```
 
-5. Likewise, the final one for "is supported or end-of-life" uses a similar approach to an endpoint targeted for a particular release.
-
-```
-code handlers/is_supported_or_eol.go
-```
-
-6. Now we are ready to build the Go application. Run the command below in the *TERMINAL* from the *gover-ext* directory.
+5. Now we are ready to build the Go application. Run the command below in the *TERMINAL* from the *gover-ext* directory.
 
 ```
 go build -o gover-ext main.go
 ```
 
-7. When your build finishes, you should have an executable file named *gover-ext* in the current directory. Start the server by running this with the command below.
+6. When your build finishes, you should have an executable file named *gover-ext* in the current directory. Start the server by running this with the command below.
 
 ```
 ./gover-ext
@@ -301,17 +295,17 @@ go build -o gover-ext main.go
 <br><br>
 
 
-8. As we did before, we need to make the port where the server is running public. Change to the *PORTS* tab, find the row for port 8080, right-click and select "Port Visibility" and then "Public".
+7. As we did before, we need to make the port where the server is running public. Change to the *PORTS* tab, find the row for port 8080, right-click and select "Port Visibility" and then "Public".
 
 ![changing port visibility](./images/ext52.png?raw=true "changing port visibility")
 <br><br>
 
-9. Also, while we're on the *PORTS* tab, let's copy the codespace local address again to use in the next lab (where'll we setup the corresponding GitHub app). In list of ports, right-click and select "Copy Local Address". Save the resulting value also to use in the next step.
+8. Also, while we're on the *PORTS* tab, let's copy the codespace local address again to use in the next lab (where'll we setup the corresponding GitHub app). In list of ports, right-click and select "Copy Local Address". Save the resulting value also to use in the next step.
 
 ![Copying local address](./images/ext53.png?raw=true "copying local address")
 <br><br>
 
-10. Finally, let's verify that our server is working. Open a new tab, paste the copied address in for the URL and then add "/latest-version-go" onto the end of it. You will probably see a "warning" screen noting that you are about to access a development port served by someone's codespace.  Just click "Continue".
+9. Finally, let's verify that our server is working. Open a new tab, paste the copied address in for the URL and then add "/latest-version-go" onto the end of it. You will probably see a "warning" screen noting that you are about to access a development port served by someone's codespace.  Just click "Continue".
 
 ```
 <copied local address>/latest-version-go
@@ -320,7 +314,7 @@ go build -o gover-ext main.go
 ![Visiting endpoint](./images/ext54.png?raw=true "visiting endpoint")
 <br><br>
 
-11. At this point, you should see a response on the webpage showing the latest go version. If not, double-check that your server is still running in the codespace, the port is *public*, and that you have the correct URL.
+10. At this point, you should see a response on the webpage showing the latest go version. If not, double-check that your server is still running in the codespace, the port is *public*, and that you have the correct URL.
 
 ![Visiting endpoint](./images/ext55.png?raw=true "visiting endpoint")
 <br><br> 
@@ -372,45 +366,70 @@ go build -o gover-ext main.go
 ![app form part 7](./images/ext59.png?raw=true "app form part 7")
 <br><br>
 
-8. Scroll down to the **Agent Definition** section and paste the local address you saved from lab 2 into the *URL* field. (Just as-is - you don't need to add anything to it.)
-    
-9. In the *Inference description* field, add an inference description such as the one below and then click on the *"Save"* button. Afterwards, you should see a screen that says *"Your GitHub App's Agent configuration has been updated."*.
+8. Scroll down to the **Skill definitions** section and click the "Add new skill" button.
 
-```
-Generates .gitignore, .gitattributes, and LICENSE files for programming projects
-```
-
-![app form part 8](./images/ext43.png?raw=true "app form part 8")
+![app form part 8](./images/ext60.png?raw=true "app form part 8")
 <br><br>
 
-10. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that.
+9. For the first skill, you can fill in the fields as follows:
+   - **Name**: `Latest-Go-Version`
+   - **Inference description**: `Get the lastest version of Go` 
+   - **URL**: `<local address with "/latest-version-go" appended at end>`
+  
+   Then click "Add Definition".
 
-![app form part 9](./images/ext46.png?raw=true "app form part 9")
+![app form part 9](./images/ext61.png?raw=true "app form part 9")
+<br><br>  
+
+10. Now, we need to enter the other skillset definitions. Click on the "Add new skill" button.
+
+![app form part 10](./images/ext62.png?raw=true "app form part 10")
+<br><br>  
+
+
+11. For the second skill, you can fill in the fields as follows:
+   - **Name**: `Supported-Versions`
+   - **Inference description**: `Get currently supported Go versions` 
+   - **URL**: `<local address with "/supported-versions-go" appended at end>`
+  
+   Then click "Add Definition".
+
+![app form part 11](./images/ext63.png?raw=true "app form part 11")
+<br><br>  
+
+12. Save your changes with the "Save" button at the bottom of the page. You should see a blue banner appear at the top of the page letting you know that your app's configuration has been updated.
+
+![app form part 12](./images/ext64.png?raw=true "app form part 12")
+<br><br>  
+
+13. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that. You should then see a banner indicating that it was installed for your account.
+
+![app form part 13](./images/ext65.png?raw=true "app form part 13")
 <br><br>
 
-![app form part 10](./images/ext47.png?raw=true "app form part 10")
+![app form part 14](./images/ext66.png?raw=true "app form part 14")
 <br><br>
 
-![app form part 11](./images/ext48.png?raw=true "app form part 11")
+![app form part 15](./images/ext67.png?raw=true "app form part 15")
 <br><br>
 
-11. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 3000 is still marked *public*.
+14. Make sure that your ./go-ver server is still running on port 8080 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 8080 is still marked *public*.
 
 ```
-cd genmeta-ext
-npm start
+cd gover-ext
+./gover-ext
 ```
 
-12. Go to https://github.com/copilot and enter *@metafiles-generator* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+15. Go to https://github.com/copilot and enter *@go-ver* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
 
-![app form part 9](./images/ext44.png?raw=true "app form part 9")
+![app form part 16](./images/ext68.png?raw=true "app form part 16")
 <br><br>
 
-13. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
+16. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
 
 ```
-@metafiles-generator python
-@metafiles-generator MIT
+@go-ver latest version
+@go-ver supported versions
 ```
 
 ![prompt example 1](./images/ext49.png?raw=true "prompt example 1")
@@ -419,31 +438,13 @@ npm start
 ![prompt example 2](./images/ext50.png?raw=true "prompt example 2")
 <br><br>
 
-14. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
+17. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
 
 <p align="center">
 **[END OF LAB]**
 </p>
 </br></br></br>
-1. Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub
-2. Fill in the GitHub App form:
-   - **App Name**: `gover` (must be unique)
-   - **Homepage URL**: Your codespace repository URL
-   - **Callback URL**: Your public codespace URL + `/callback`
-3. Disable webhooks and set app visibility to "Only on this account"
-4. Click "Create GitHub App"
-5. Generate and download a private key when prompted
-6. Navigate to "Permissions & Events" on left, select "Account permissions" and grant "Copilot Chat: Read" permissions
-7. Go to the "Copilot" settings page, Accept Terms, and change app type from "Disabled" to "Skillset"
-8. Scroll down to "Skill definitions" section and click on "Add new skill".
-9.   - **Skill 1**: Name: "Latest-Go-Version", URL: `<your-url>/latest-version-go`, Description: "Get the latest version of Go"
-10. Add new skill - - **Skill 2**: Name: "Supported-Versions", URL: `<your-url>/supported-versions-go`, Description: "Get currently supported Go versions"
-11. Add new skill -     - **Skill 3**: Name: "Version-Support", URL: `<your-url>/is-supported-or-eol`, Description: "Check if a Go version is supported or EOL"
-12. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
-13. Test each skill: `@go-versions latest`, `@go-versions supported versions`, `@go-versions 1.21`
-14. Compare the simplicity of skillsets vs agents for API-based functionality
 
----
 
 ## Lab 5: Creating a VS Code Extension for Copilot
 
