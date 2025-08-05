@@ -206,22 +206,49 @@ Generates .gitignore, .gitattributes, and LICENSE files for programming projects
 ![app form part 8](./images/ext43.png?raw=true "app form part 8")
 <br><br>
 
-10. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps.
+10. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that.
+
+![app form part 9](./images/ext46.png?raw=true "app form part 9")
+<br><br>
+
+![app form part 10](./images/ext47.png?raw=true "app form part 10")
+<br><br>
+
+![app form part 11](./images/ext48.png?raw=true "app form part 11")
+<br><br>
+
+11. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 3000 is still marked *public*.
 
 ```
 cd genmeta-ext
 npm start
 ```
 
-11. Go to https://github.com/copilot and enter *@metafiles-generator* into the chat dialog. You will then be prompted to *Connect*. Click the green button to proceed.
+12. Go to https://github.com/copilot and enter *@metafiles-generator* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
 
 ![app form part 9](./images/ext44.png?raw=true "app form part 9")
 <br><br>
 
+13. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
 
-16. Click on "Install App" on left and install the app on your account and test it in Copilot Chat with: `@meta-files-generator Python`
+```
+@metafiles-generator python
+@metafiles-generator MIT
+```
 
----
+![prompt example 1](./images/ext49.png?raw=true "prompt example 1")
+<br><br>
+
+![prompt example 2](./images/ext50.png?raw=true "prompt example 2")
+<br><br>
+
+14. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br></br>
+
 
 ## Lab 4: Building a Skillset-Based Extension
 
