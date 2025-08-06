@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.10 - 08/05/25
+## Revision 1.11 - 08/05/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -300,7 +300,7 @@ go build -o gover-ext main.go
 ![changing port visibility](./images/ext52.png?raw=true "changing port visibility")
 <br><br>
 
-8. Also, while we're on the *PORTS* tab, let's copy the codespace local address again to use in the next lab (where'll we setup the corresponding GitHub app). In list of ports, right-click and select "Copy Local Address". Save the resulting value also to use in the next step.
+8. Also, while we're on the *PORTS* tab, let's copy the codespace local address again to use in the next lab (where'll we setup the corresponding GitHub app). In the row for port 8080, right-click and select "Copy Local Address". Save the resulting value also to use in the next step.
 
 ![Copying local address](./images/ext53.png?raw=true "copying local address")
 <br><br>
@@ -329,11 +329,11 @@ go build -o gover-ext main.go
 
 1.  Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
-2. On that page, fill in the GitHub App form (for the last item, paste the local address you saved from lab 4 and add "/callback" at the end.
+2. On that page, fill in the GitHub App form.
    - **App Name**: `go-ver`
    - **Description**: `Go Version Helper` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
-   - **Callback URL**: <local address with "/callback" on the end>
+   - **Callback URL**: <can leave blank>
   
 ![app form part 1](./images/ext57.png?raw=true "app form part 1")
 <br><br>
@@ -371,26 +371,26 @@ go build -o gover-ext main.go
 ![app form part 8](./images/ext60.png?raw=true "app form part 8")
 <br><br>
 
-9. For the first skill, you can fill in the fields as follows:
+9. For the first skill, you can fill in the fields as follows: (**Make sure that the local address has the 8080 port in it.**)
    - **Name**: `Latest-Go-Version`
    - **Inference description**: `Get the lastest version of Go` 
-   - **URL**: `<local address with "/latest-version-go" appended at end>`
+   - **URL**: `<local address with 8080 port and "/latest-version-go" appended at end>`
   
    Then click "Add Definition".
 
-![app form part 9](./images/ext61.png?raw=true "app form part 9")
+![app form part 9](./images/ext76.png?raw=true "app form part 9")
 <br><br>  
 
-10. Now, we need to enter the other skillset definitions. Click on the "Add new skill" button.
+10. Now, we need to enter the other skillset definition. Click on the "Add new skill" button.
 
-![app form part 10](./images/ext62.png?raw=true "app form part 10")
+![app form part 10](./images/ext77.png?raw=true "app form part 10")
 <br><br>  
 
 
 11. For the second skill, you can fill in the fields as follows:
    - **Name**: `Supported-Versions`
    - **Inference description**: `Get currently supported Go versions` 
-   - **URL**: `<local address with "/supported-versions-go" appended at end>`
+   - **URL**: `<local address with 8080 port and  "/supported-versions-go" appended at end>`
   
    Then click "Add Definition".
 
