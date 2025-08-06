@@ -432,11 +432,9 @@ cd gover-ext
 @go-ver supported versions
 ```
 
-![prompt example 1](./images/ext49.png?raw=true "prompt example 1")
+![prompt examples](./images/ext78.png?raw=true "prompt examples")
 <br><br>
 
-![prompt example 2](./images/ext50.png?raw=true "prompt example 2")
-<br><br>
 
 17. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
 
