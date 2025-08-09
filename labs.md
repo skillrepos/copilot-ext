@@ -170,15 +170,15 @@ npm start
 **Purpose**: Learn to create and configure a GitHub App to bridge your agent extension with Copilot Chat.
 
 ### Steps:
-1.  Navigate to [New GitHub App](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
+1.  Navigate to [New GitHub App - https://github.com/settings/apps/new](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
 2. On that page, fill in the GitHub App form (for the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
-   - **App Name**: `metafiles-generator`
+   - **App Name**: `metafiles-<github userid>`
    - **Description**: `Metafiles Generator` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
    - **Callback URL**: <local address with "/callback" on the end>
   
-![app form part 1](./images/ext35.png?raw=true "app form part 1")
+![app form part 1](./images/ext86.png?raw=true "app form part 1")
 <br><br>
 
 3. Scroll down on the page to the **Webhook** section and uncheck the *Active* box there.
@@ -198,13 +198,16 @@ npm start
 
 6. You'll now be on a page where it should say *"Registration successful. You must generate a private key in order to install your GitHub App."* in a yellow box at the top. Click on the link to "generate a private key" and then, on the next screen, click on the green button to "Generate a private key." After that you should see a screen where your private key has been added.
 
-![app form part 5](./images/ext39.png?raw=true "app form part 5")
+![app form part 5](./images/ext87.png?raw=true "app form part 5")
 <br><br>
 
 ![app form part 6](./images/ext40.png?raw=true "app form part 6")
 <br><br>
 
-7. On the top left of that page, select "Copilot" from the menu on the left and change the *App Type* from "Disabled" to "Agent".
+7. On the top left of that page, select "Copilot" from the menu on the left. If you are prompted to accept the developer agreement, just click the check box and click "Accept Terms". Then change the *App Type* from "Disabled" to "Agent".
+
+![app form part 7](./images/ext88.png?raw=true "app form part 7")
+<br><br>
 
 ![app form part 7](./images/ext41.png?raw=true "app form part 7")
 <br><br>
@@ -220,27 +223,27 @@ Generates .gitignore, .gitattributes, and LICENSE files for programming projects
 ![app form part 8](./images/ext43.png?raw=true "app form part 8")
 <br><br>
 
-10. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that.
+10. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that. Afterwards, you should see a screen showing that the extension was installed.
 
-![app form part 9](./images/ext46.png?raw=true "app form part 9")
+![app form part 9](./images/ext89.png?raw=true "app form part 9")
 <br><br>
 
-![app form part 10](./images/ext47.png?raw=true "app form part 10")
+![app form part 10](./images/ext90.png?raw=true "app form part 10")
 <br><br>
 
-![app form part 11](./images/ext48.png?raw=true "app form part 11")
+![app form part 11](./images/ext91.png?raw=true "app form part 11")
 <br><br>
 
-11. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 3000 is still marked *public*.
+11. Switch back to your codespace. Make sure that your server is still running on port 3000 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 3000 is still marked *public*.
 
 ```
 cd genmeta-ext
 npm start
 ```
 
-12. Go to https://github.com/copilot and enter *@metafiles-generator* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+12. Go to https://github.com/copilot and enter *@metafiles-<github userid>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
 
-![app form part 9](./images/ext44.png?raw=true "app form part 9")
+![app form part 9](./images/ext92.png?raw=true "app form part 9")
 <br><br>
 
 13. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
@@ -250,10 +253,10 @@ npm start
 @metafiles-generator MIT
 ```
 
-![prompt example 1](./images/ext49.png?raw=true "prompt example 1")
+![prompt example 1](./images/ext93.png?raw=true "prompt example 1")
 <br><br>
 
-![prompt example 2](./images/ext50.png?raw=true "prompt example 2")
+![prompt example 2](./images/ext94.png?raw=true "prompt example 2")
 <br><br>
 
 14. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
