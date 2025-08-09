@@ -172,7 +172,7 @@ npm start
 ### Steps:
 1.  Navigate to [New GitHub App - https://github.com/settings/apps/new](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
-2. On that page, fill in the GitHub App form (for the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
+2. On that page, fill in the GitHub App form. For the first item, substitute your actual GitHub userid for \<github userid\>. For the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
    - **App Name**: `metafiles-<github userid>`
    - **Description**: `Metafiles Generator` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
@@ -241,7 +241,7 @@ cd genmeta-ext
 npm start
 ```
 
-12. Go to https://github.com/copilot and enter *@metafiles-<github userid>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+12. Go to https://github.com/copilot and enter *@metafiles-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
 
 ![app form part 9](./images/ext92.png?raw=true "app form part 9")
 <br><br>
@@ -249,8 +249,8 @@ npm start
 13. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
 
 ```
-@metafiles-generator python
-@metafiles-generator MIT
+@metafiles-<github userid> python
+@metafiles-<github userid> MIT
 ```
 
 ![prompt example 1](./images/ext93.png?raw=true "prompt example 1")
