@@ -44,7 +44,7 @@
 8. To see the extension in action, go to https://github.com/copilot in your browser. (Make sure this is in the browser where you are logged in to GitHub with the same GitHub userid as you used in the previous steps.) Then, in the chat area, you can enter a prompt for the new extension, such as the one below.
 
 ```
-@models What models are available?
+@models What models from GitHub Models are available?
 ```
 <br><br>
 ![Copilot models prompt](./images/ext20.png?raw=true "Copilot models prompt")
@@ -61,7 +61,17 @@
  
 10. After the authorization steps are completed, you should be able to return to Copilot in the browser and see the results of your query.
 
-![Extension output](./images/ext24.png?raw=true "Extension output")
+![Extension output](./images/ext82.png?raw=true "Extension output")
+
+<br><br>
+
+11. Another query to try is something like this:
+
+```
+@models briefly recommend a model from GitHub Models that can handle language-based tasks with low latency
+```
+
+![Extension output](./images/ext81.png?raw=true "Extension output")
 
 <br><br>
 
