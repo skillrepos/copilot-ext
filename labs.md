@@ -115,7 +115,7 @@ code -d ../extra/index.js index.js
 ![done](./images/ext28.png?raw=true "done")
 <br><br>
    
-5. Also, take a look at the *package.json* file to see how the app and operations are configured. No changes need to be made. 
+5. Also, take a look at the [package.json](./genmeta-ext/package.json) file to see how the app and operations are configured. No changes need to be made. 
 
 ```
 code package.json
@@ -170,7 +170,7 @@ npm start
 **Purpose**: Learn to create and configure a GitHub App to bridge your agent extension with Copilot Chat.
 
 ### Steps:
-1.  Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
+1.  Navigate to [New GitHub App](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
 2. On that page, fill in the GitHub App form (for the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
    - **App Name**: `metafiles-generator`
