@@ -496,7 +496,7 @@ code -d ../extra/extension.ts src/extension.ts
 npm install
 npm run compile
 ```
-6. Open the VS Code Command Palette (Ctrl+Shift+P) and run "Developer: Reload Window"
+6. Open the VS Code Command Palette (F1 - or - Ctrl+Shift+P) and run "Developer: Reload Window"
 
 ![reload window](./images/ext72.png?raw=true "reload window")
 <br><br>
