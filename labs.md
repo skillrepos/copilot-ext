@@ -445,8 +445,8 @@ cd gover-ext
 16. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
 
 ```
-@go-ver latest version
-@go-ver supported versions
+@gover-<github userid> latest version
+@gover-<github userid> supported versions
 ```
 
 ![prompt examples](./images/ext103.png?raw=true "prompt examples")
