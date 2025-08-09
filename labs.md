@@ -344,15 +344,15 @@ go build -o gover-ext main.go
 ## Lab 5: Configuring GitHub App for your Skillset Extension
 **Purpose**: Learn to create and configure a GitHub App to bridge your agent extension with Copilot Chat.
 
-1.  Navigate to [GitHub Developer Settings](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
+1.  Navigate to [New GitHub App](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
-2. On that page, fill in the GitHub App form.
-   - **App Name**: `go-ver`
+2. On that page, fill in the GitHub App form. For the first item, replace \<github userid]> with your actual GitHub Userid. For the last item, you can just use the local address you copied in lab 4.
+   - **App Name**: `go-ver-<github userid>`
    - **Description**: `Go Version Helper` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
-   - **Callback URL**: <can leave blank>
+   - **Callback URL**: `local address`
   
-![app form part 1](./images/ext57.png?raw=true "app form part 1")
+![app form part 1](./images/ext95.png?raw=true "app form part 1")
 <br><br>
 
 3. Scroll down on the page to the **Webhook** section and uncheck the *Active* box there.
@@ -372,7 +372,7 @@ go build -o gover-ext main.go
 
 6. You'll now be on a page where it should say *"Registration successful. You must generate a private key in order to install your GitHub App."* in a yellow box at the top. Click on the link to "generate a private key" and then, on the next screen, click on the green button to "Generate a private key." After that you should see a screen where your private key has been added.
 
-![app form part 5](./images/ext58.png?raw=true "app form part 5")
+![app form part 5](./images/ext96.png?raw=true "app form part 5")
 <br><br>
 
 ![app form part 6](./images/ext40.png?raw=true "app form part 6")
@@ -380,7 +380,7 @@ go build -o gover-ext main.go
 
 7. On the top left of that page, select "Copilot" from the menu on the left and change the *App Type* from "Disabled" to "Skillset".
 
-![app form part 7](./images/ext59.png?raw=true "app form part 7")
+![app form part 7](./images/ext97.png?raw=true "app form part 7")
 <br><br>
 
 8. Scroll down to the **Skill definitions** section and click the "Add new skill" button.
@@ -416,18 +416,18 @@ go build -o gover-ext main.go
 
 12. Save your changes with the "Save" button at the bottom of the page. You should see a blue banner appear at the top of the page letting you know that your app's configuration has been updated.
 
-![app form part 12](./images/ext64.png?raw=true "app form part 12")
+![app form part 12](./images/ext98.png?raw=true "app form part 12")
 <br><br>  
 
 13. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that. You should then see a banner indicating that it was installed for your account.
 
-![app form part 13](./images/ext65.png?raw=true "app form part 13")
+![app form part 13](./images/ext99.png?raw=true "app form part 13")
 <br><br>
 
-![app form part 14](./images/ext66.png?raw=true "app form part 14")
+![app form part 14](./images/ext100.png?raw=true "app form part 14")
 <br><br>
 
-![app form part 15](./images/ext67.png?raw=true "app form part 15")
+![app form part 15](./images/ext101.png?raw=true "app form part 15")
 <br><br>
 
 14. Make sure that your ./go-ver server is still running on port 8080 back in your codespace. If not, do the steps below again. If it is still running, you do not need to do these steps. Also double-check that port 8080 is still marked *public*.
@@ -437,9 +437,9 @@ cd gover-ext
 ./gover-ext
 ```
 
-15. Go to https://github.com/copilot and enter *@go-ver* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+15. Go to https://github.com/copilot and enter *@go-ver-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
 
-![app form part 16](./images/ext68.png?raw=true "app form part 16")
+![app form part 16](./images/ext102.png?raw=true "app form part 16")
 <br><br>
 
 16. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
@@ -449,7 +449,7 @@ cd gover-ext
 @go-ver supported versions
 ```
 
-![prompt examples](./images/ext78.png?raw=true "prompt examples")
+![prompt examples](./images/ext103.png?raw=true "prompt examples")
 <br><br>
 
 
