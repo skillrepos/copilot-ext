@@ -17,7 +17,7 @@ The codespace is ready to use when you see a prompt like the one shown below in 
 
 ![Ready to use](./images/ext2.png?raw=true "Ready to use")
 
-**3. You'll want to have the labs.md file open (either in a browser tab and/or in your codespace).**
+**3. You'll want to have the [labs.md](./labs.md) file open (either in a browser tab and/or in your codespace).**
 
 **4. (Optional, but recommended) Change your codespace's default timeout from 30 minutes to 60.**
 To do this, when logged in to GitHub, go to https://github.com/settings/codespaces and scroll down on that page until you see the *Default idle timeout* section. Adjust the value as desired.
