@@ -510,8 +510,13 @@ npm run compile
 
 ![open chat](./images/ext74.png?raw=true "open chat")
 <br><br>
+
+9. If you don't see the full Copilot panel or have access to the "Chat" area, check in the bottom bar of the codespace and see if there's a "*Finish Setup*" option. If so, click on that and then click the "*Set up Copilot*" blue button.
    
-9. Now, in the dialog entry area for Chat, you can try out the new extension. Some suggested prompts to try are below.
+![finish setup](./images/ext85.png?raw=true "finish setup")
+<br><br>
+   
+10. Now, in the dialog entry area for Chat, you can try out the new extension. Some suggested prompts to try are below. (If you are prompted to allow the extension access to models, confirm.)
 
 ```
 @apifinder weather
