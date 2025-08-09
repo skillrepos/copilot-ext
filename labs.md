@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.11 - 08/05/25
+## Revision 1.12 - 08/09/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -22,7 +22,11 @@
 ![GitHub models details](./images/ext16.png?raw=true "Copilot models details")
 <br><br>
 
-5. Click the "Add" button to install the extension and then select the "Install it for free" button on the selected account.
+5. Click the "Add" or "Install" button on the selected account.
+
+
+![GitHub models install](./images/ext80.png?raw=true "Copilot models install")
+<br><br>
 
 ![GitHub models add](./images/ext17.png?raw=true "Copilot models add")
 <br><br>
