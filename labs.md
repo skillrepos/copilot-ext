@@ -47,7 +47,7 @@
 @models What models from GitHub Models are available?
 ```
 <br><br>
-![Copilot models prompt](./images/ext20.png?raw=true "Copilot models prompt")
+![Copilot models prompt](./images/ext83.png?raw=true "Copilot models prompt")
 <br><br>
 
 9. If prompted, click on "Connect" to connect your account with Models. Then proceed through any other authorization screens.
