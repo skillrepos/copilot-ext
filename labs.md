@@ -225,6 +225,9 @@ Generates .gitignore, .gitattributes, and LICENSE files for programming projects
 ![app form part 8](./images/ext43.png?raw=true "app form part 8")
 <br><br>
 
+![app config updated](./images/ext104.png?raw=true "app config updated")
+<br><br>
+
 10. Now we need to install the app. In the left top menu again, click on *"Install App"* and then click the green *Install* button on the next screen. Click "Install" again on the screen after that. Afterwards, you should see a screen showing that the extension was installed.
 
 ![app form part 9](./images/ext89.png?raw=true "app form part 9")
@@ -243,12 +246,14 @@ cd genmeta-ext
 npm start
 ```
 
-12. Go to https://github.com/copilot and enter *@metafiles-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+12. Go to https://github.com/copilot and enter *@metafiles-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).  
 
 ![app form part 9](./images/ext92.png?raw=true "app form part 9")
 <br><br>
 
-13. You're now ready to try using the new extension.  Go to https://github.com/copilot again and, in the chat dialog, enter a prompt like the ones below to try the extension.
+13. There will be multiple dialogs/screens to authorize. At the end, you will probably see a screen that says "Cannot GET /callback" - that's ok. Just close that and open up a new tab to https://github.com/copilot.
+
+14. You're now ready to try using the new extension. In the chat dialog, enter a prompt like the ones below to try the extension.
 
 ```
 @metafiles-<github userid> python
@@ -261,7 +266,7 @@ npm start
 ![prompt example 2](./images/ext94.png?raw=true "prompt example 2")
 <br><br>
 
-14. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
+15. When you are done, you can stop the server running in the codespace with 'Ctrl+C'.
 
 <p align="center">
 **[END OF LAB]**
