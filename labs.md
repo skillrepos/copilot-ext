@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.13 - 08/13/25
+## Revision 1.14 - 08/14/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -98,7 +98,7 @@ cd genmeta-ext
  <br><br>
 
 
-2. To keep things simple and avoid challenges with typing in code, we'll be building out files in this workshop by using a *compare and merge* process. The idea is to show a side-by-side final and partial implementation. To open this view, run the command below in the TERMINAL. Afterwards you should see an image like the one in the screenshot in your codespace.
+2. To keep things simple and avoid challenges with typing in code, we'll be building out files in this lab by using a *compare and merge* process. The idea is to show a side-by-side final and partial implementation. To open this view, run the command below in the TERMINAL. Afterwards you should see an image like the one in the screenshot in your codespace.
 
 ```
 code -d ../extra/index.js index.js
