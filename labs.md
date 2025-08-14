@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.15 - 08/14/25
+## Revision 1.16 - 08/14/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -174,7 +174,7 @@ npm start
 ### Steps:
 1.  Navigate to [New GitHub App - https://github.com/settings/apps/new](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
-2. On that page, fill in the GitHub App form. For the first item, substitute your actual GitHub userid for \<github userid\>. For the last item, paste the local address you saved from lab 2 and add "/callback" at the end.
+2. On that page, fill in the GitHub App form. For the first item, substitute your actual GitHub userid for \<github userid\>. (We incorporate your userid here because we need this to be unique.) For the last item, paste the local address you saved from lab 2 and add "/callback" at the end (or "callback" if the address already has a "/" at end).
    - **App Name**: `metafiles-<github userid>`
    - **Description**: `Metafiles Generator` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
@@ -183,7 +183,7 @@ npm start
 ![app form part 1](./images/ext86.png?raw=true "app form part 1")
 <br><br>
 
-3. Scroll down on the page to the **Webhook** section and uncheck the *Active* box there.
+3. Scroll down on the page to the **Webhook** section and **uncheck** the *Active* box there.
 
 ![app form part 2](./images/ext36.png?raw=true "app form part 2")
 <br><br>
