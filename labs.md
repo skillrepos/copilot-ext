@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.12 - 08/09/25
+## Revision 1.13 - 08/13/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -63,6 +63,8 @@
 
 ![Extension output](./images/ext82.png?raw=true "Extension output")
 
+<br><br>
+**NOTE: If the browser session seems to hang, you can try closing that tab, opening a new tab to github.com/copilot and post the question in that chat.**
 <br><br>
 
 11. Another query to try is something like this:
