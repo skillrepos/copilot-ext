@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.14 - 08/14/25
+## Revision 1.15 - 08/14/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
@@ -126,7 +126,7 @@ code package.json
 ![package.json](./images/ext29.png?raw=true "package.json")
 <br><br>
 
-6. Now, we are ready to run the extension.  First in the TERMINAL, install the extensions and start the server with the commands below. After they run, you should see output indicating that the server is running on port 3000.
+6. Now, we are ready to run the extension.  First in the TERMINAL, install the dependencies and start the server with the commands below. After they run, you should see output indicating that the server is running on port 3000.
 
 ```
 npm install
