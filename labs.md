@@ -353,8 +353,8 @@ go build -o gover-ext main.go
 
 1.  Navigate to [New GitHub App](https://github.com/settings/apps/new) while logged into GitHub. Authenticate as needed.
    
-2. On that page, fill in the GitHub App form. For the first item, replace \<github userid]> with your actual GitHub Userid. For the last item, you can just use the local address you copied in lab 4.
-   - **App Name**: `go-ver-<github userid>`
+2. On that page, fill in the GitHub App form. For the first item, replace \<github userid]> with your actual GitHub Userid. For the last item, you can just use the local address you copied in lab 4. (We don't need to add /callback here - we just need an address.)
+   - **App Name**: `gover-<github userid>`
    - **Description**: `Go Version Helper` (or whatever text you want)
    - **Homepage URL**: `https://github.com/skillsrepos/copilot-ext`
    - **Callback URL**: `local address`
@@ -444,7 +444,7 @@ cd gover-ext
 ./gover-ext
 ```
 
-15. Go to https://github.com/copilot and enter *@go-ver-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s).
+15. Go to https://github.com/copilot and enter *@go-ver-\<github userid\>* into the chat dialog. You will then be prompted to *Connect*. Click the green button and proceed through the dialog(s). After clicking through, you will probably see a "404 page not found" screen. That is ok. You can just close that tab.
 
 ![app form part 16](./images/ext102.png?raw=true "app form part 16")
 <br><br>
