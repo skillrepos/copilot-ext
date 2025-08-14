@@ -291,13 +291,13 @@ cd ../gover-ext
 code main.go
 ```
 
-3. Now you can look at the handlers, viewing the "latest version" one first. Notice that the code for it simply gets data from "https://go.dev/dl/?mode=json", checks for any errors and parses it for the response.
+3. Now you can look at the handlers, viewing the "latest version" one first. You can open it from the file tree [latest version handler](./gover-ext/handlers/latest_version.go) Notice that the code for it simply gets data from "https://go.dev/dl/?mode=json", checks for any errors and parses it for the response.
 
 ```
 code handlers/latest_version.go
 ```
 
-4. The code for the "supported versions" one does a similar process using results from "https://endoflife.date/api/go.json".
+4. The code for the "supported versions" one [supported versions handler](./gover-ext/handlers/supported_versions.go) does a similar process using results from "https://endoflife.date/api/go.json".
 
 ```
 code handlers/supported_versions.go
