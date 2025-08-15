@@ -1,7 +1,7 @@
 # Creating GitHub Copilot Extensions
 ## Extend Copilot with your own apps
 ## Workshop labs 
-## Revision 1.16 - 08/14/25
+## Revision 1.17 - 08/14/25
 
 ## Lab 1: Exploring and Installing Marketplace Extensions
 
