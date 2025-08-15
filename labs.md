@@ -503,27 +503,34 @@ code -d ../extra/extension.ts src/extension.ts
 npm install
 npm run compile
 ```
-6. Open the VS Code Command Palette (F1 - or - Ctrl+Shift+P) and run "Developer: Reload Window"
 
-![reload window](./images/ext72.png?raw=true "reload window")
+6. To facilitate loading our extension in a new "debug" instance, we have a [launch configuration file](./.vscode/launch.json) file. You can open it to look at it if you want by using the link, finding it in the explorer, or using the command below.
+
+```
+code ../.vscode/launch.json
+```
+
+7. Now, click on the three bar menu in the upper left of the codespace area in the browser tab (to the left of "EXPLORER"). Then select "Run" and then "Run **Without** Debugging" (or the shortcut is ^F5).  
+
+![start without debugging](./images/ext105.png?raw=true "start without debugging")
 <br><br>
 
-7. Now, press F5 to launch a new VS Code window with your extension loaded. (We have a .vscode/launch.json file in the root to support a debug launch.) If you get a dialog about not being able to find 'npm: build', just click on "Debug Anyway".
+8. Depending on what file you have open in the codespace, you may see an error popup that says "Could not find the task...". Just click on "Debug Anyway".
 
 ![debug](./images/ext73.png?raw=true "debug")
 <br><br>
 
-8. This will start a new codespace instance. In the new instance, if the Copilot Chat panel is not visible, click on the Copilot icon at the top and select "Open Chat".
+9. This will start a new codespace instance. In the new instance, if the Copilot Chat panel is not visible, click on the Copilot icon at the top and select "Open Chat".
 
 ![open chat](./images/ext74.png?raw=true "open chat")
 <br><br>
 
-9. If you don't see the full Copilot panel or have access to the "Chat" area, check in the bottom bar of the codespace and see if there's a "*Finish Setup*" option. If so, click on that and then click the "*Set up Copilot*" blue button.
+10. If you don't see the full Copilot panel or have access to the "Chat" area, check in the bottom bar of the codespace and see if there's a "*Finish Setup*" option. If so, click on that and then click the "*Set up Copilot*" blue button.
    
 ![finish setup](./images/ext85.png?raw=true "finish setup")
 <br><br>
    
-10. Now, in the dialog entry area for Chat, you can try out the new extension. Some suggested prompts to try are below. (If you are prompted to allow the extension access to models, confirm.)
+11. Now, in the dialog entry area for Chat, you can try out the new extension. Some suggested prompts to try are below. (If you are prompted to allow the extension access to models, confirm.)
 
 ```
 @apifinder weather
